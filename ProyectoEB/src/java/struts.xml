@@ -47,6 +47,20 @@
             <result name="error">/adminIndex.jsp</result>
         </action>
         
+        <action name="gestionarDeportes" class="acciones.gestionarDeporteAction">
+            <result name="success">/adminDeporteIndex.jsp</result>
+            <result name="error">/adminIndex.jsp</result>
+        </action>
+        <action name="gestionarDeporte" class="acciones.actualizarDeporteAction">
+            <result name="success">/actualizarDeporte.jsp</result>
+            
+        </action>
+        <action name="actualizarDeporte" class="acciones.actualizarDeporteAction" method="actualizarDeporte">
+            <result name="success">/adminDeporteIndex.jsp</result>
+            <result name="input">/actualizarDeporte.jsp</result>
+            <result name="error">/actualizarDeporte.jsp</result>
+            
+        </action>
         <!--GESTIONAR DEPORTISTAS-->
         <action name="gestionarDeportistas" class="acciones.gestionarDeportistasAction">
             <result name="success">/adminDeportistaIndex.jsp</result>
@@ -104,7 +118,7 @@
             <result name="success">/verDetallesEquipo.jsp</result> 
             <result name="error">/adminEquipoIndex.jsp</result>
         </action>
-        
+        <!--CERRAR SESION-->
         <action name="cerrarSesion" class="acciones.cerrarSesionAction">
             <result name="success" type="redirectAction">
                 <param name="actionName">cargaInicial</param>

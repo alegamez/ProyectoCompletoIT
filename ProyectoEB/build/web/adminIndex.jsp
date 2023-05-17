@@ -14,45 +14,44 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Panel de Administración</title>
         <s:head/>
-        <link rel="stylesheet" type="text/css" href="css/adminIndex.css">
+        <link rel="stylesheet" type="text/css" href="css/adminIndx.css">
     </head>
     <body>
         <header>
             <h1>Panel de Administración</h1>
         </header>
 
-        <div class="container">
-            <section>
-                <h2><s:text name="gestionarDeporte_submit"/></h2>
-                <s:form action="gestionarDeportes">
-                    <s:submit    class="big-button"/>
-                </s:form>
-            </section>
+        <div class="gestion">
 
-            <section>
-                <h2><s:text name="gestionarDeportistas_submit"/></h2>
-                <s:form action="gestionarDeportistas">
-                    <s:submit  class="big-button"/>
-                </s:form>
-            </section>
-
-            <section>
-                <h2><s:text name="gestionarEventos_submit"/></h2>
-                <s:form action="gestionarEventos">
-                    <s:submit  class="big-button"/>
-                </s:form>
-            </section>
-
-            <section>
-                <h2><s:text name="gestionarEquipos_submit"/></h2>
-                <s:form action="gestionarEquipos">
-                    <s:submit class="big-button"/>
-                </s:form>
-            </section>
+          
+            <s:form action="gestionarDeportes">
+                <s:submit key="gestionarDeporte_submit"/>
+            </s:form>
         </div>
 
-        <s:form action="cerrarSesion">
-            <s:submit key="submit_cerrarSesion" class="logout-button"/>
-        </s:form>
+        <div class="gestion">
+           
+            <s:form action="gestionarDeportistas">
+                <s:submit key="gestionarDeportistas_submit"/>
+            </s:form>
+        </div>
+
+        <div class="gestion">
+            <s:form action="gestionarEventos">
+                <s:submit key="gestionarEventos_submit"/>
+            </s:form>
+        </div>
+
+        <div class="gestion">
+            <s:form action="gestionarEquipos">
+                <s:submit key="gestionarEquipos_submit"/>
+            </s:form>
+        </div>
+
+        <div class="cerrarSesion">
+            <s:form action="cerrarSesion">
+                <s:submit key="submit_cerrarSesion" class="logout-button"/>
+            </s:form>
+        </div>     
     </body>
 </html>

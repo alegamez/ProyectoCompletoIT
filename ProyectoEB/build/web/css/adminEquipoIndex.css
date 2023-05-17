@@ -1,0 +1,91 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17-may-2023, 12:02:59
+    Author     : Ale Gamez
+*/
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.containerTablas {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.anadir_form {
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.tablasEquipo {
+    display: inline-block;
+    width: 20%;
+    height: 200px; /* Establece la altura deseada para las tablas */
+    margin: 10px;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+    vertical-align: bottom; 
+}
+
+.tablasEquipo:hover {
+    background-color: #f2f2f2;
+}
+
+.accionesEquipo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.accionesEquipo form {
+    display: inline-block;
+    
+}
+
+
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    text-align: center;
+}
+
+table {
+    margin: 0 auto;
+}
+
+
+
+input[type="submit"] {
+    background-color: #337ab7;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #286090;}

@@ -1,0 +1,105 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        <action name="" class="acciones.cargaInicialAction">
+            <result name="success">/index.jsp</result>
+        </action>
+    </package>
+    <package name="misacciones" extends="struts-default">
+        <action name="irDeporte" class="acciones.listarEventosAction">
+            <result name="success">/deporteIndex.jsp</result>
+        </action>
+        <action name="listarDeportistas" class="acciones.listarDeportistasAction">
+            <result name="success">/listaDeportistas.jsp</result>
+        </action>
+        <action name="mostrarEvento" class="acciones.mostrarEventoAction">
+            <result name="success">/eventoInformacion.jsp</result>
+        </action>
+        
+        
+        <!--INICIAR SESION-->
+        <action name="iniciarSesion" class="acciones.iniciarSesionAction">
+            <result name="success">/adminIndex.jsp</result>
+            <result name="error">/index.jsp</result>
+        </action>
+        
+        
+        <!--GESTIONAR DEPORTES-->
+        <action name="anadirDeporte" class="acciones.anadirDeporteAction">
+            <result name="success">/adminDeporteIndex.jsp</result>
+            <result name="input">/adminDeporteIndex.jsp</result>
+            <result name="error">/adminDeporteIndex.jsp</result>
+        </action>
+        <action name="eliminarDeporte" class="acciones.eliminarDeporteAction">
+            <result name="success">/adminDeporteIndex.jsp</result>
+            <result name="error">/adminIndex.jsp</result>
+        </action>
+        <action name="gestionarDeportes" class="acciones.gestionarDeporteAction">
+            <result name="success">/adminDeporteIndex.jsp</result>
+            <result name="error">/adminIndex.jsp</result>
+        </action>
+        
+        <!--GESTIONAR DEPORTISTAS-->
+        <action name="gestionarDeportistas" class="acciones.gestionarDeportistasAction">
+            <result name="success">/adminDeportistaIndex.jsp</result>
+            <result name="error">/adminIndex.jsp</result>
+        </action>
+         <action name="anadirDeportista" class="acciones.anadirDeportistaAction">
+            <result name="success">/adminDeportistaIndex.jsp</result>
+            <result name="input">/adminDeportistaIndex.jsp</result>
+            <result name="error">/adminDeportistaIndex.jsp</result>
+        </action>
+        <action name="eliminarDeportista" class="acciones.eliminarDeportistaAction">
+            <result name="success">/adminDeportistaIndex.jsp</result>
+            <result name="error">/adminDeportistaIndex.jsp</result>
+        </action>
+        <action name="filtrarDeportistas" class="acciones.filtrarDeportistasAction">
+            <result name="success">/adminDeportistaIndex.jsp</result>
+            <result name="error">/adminDeportistaIndex.jsp</result>
+        </action>
+        
+        
+        <!--GESTIONAR EVENTOS-->
+        <action name="gestionarEventos" class="acciones.gestionarEventosAction">
+            <result name="success">/adminEventosIndex.jsp</result>
+            <result name="error">/adminIndex.jsp</result>
+        </action>
+        <action name="anadirEvento" class="acciones.anadirEventoAction">
+            <result name="success">/adminEventosIndex.jsp</result>
+            <result name="input">/adminEventosIndex.jsp</result>
+            <result name="error">/adminEventosIndex.jsp</result>
+        </action>
+        <action name="eliminarEvento" class="acciones.eliminarEventoAction">
+            <result name="success">/adminEventosIndex.jsp</result>
+            <result name="error">/adminEventosIndex.jsp</result>
+        </action>
+        <action name="filtrarEventos" class="acciones.gestionarEventosAction">
+            <result name="success">/adminEventosIndex.jsp</result>
+            <result name="error">/adminEventosIndex.jsp</result>
+        </action>
+        
+        <!--GESTIONAR EQUIPOS-->
+         <action name="gestionarEquipos" class="acciones.gestionarEquiposAction">
+            <result name="success">/adminEquipoIndex.jsp</result>
+            <result name="error">/adminIndex.jsp</result>
+        </action>
+         <action name="anadirEquipo" class="acciones.anadirEquipoAction">
+            <result name="success">/adminEquipoIndex.jsp</result>
+            <result name="input">/adminEquipoIndex.jsp</result>
+            <result name="error">/adminEquipoIndex.jsp</result>
+        </action>
+        <action name="eliminarEquipo" class="acciones.eliminarEquipoAction">
+            <result name="success">/adminEquipoIndex.jsp</result> 
+            <result name="error">/adminEquipoIndex.jsp</result>
+        </action>
+        <action name="mostrarEquipo" class="acciones.detallesEquipoAction">
+            <result name="success">/verDetallesEquipo.jsp</result> 
+            <result name="error">/adminEquipoIndex.jsp</result>
+        </action>
+        
+    </package>
+</struts>

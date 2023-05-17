@@ -10,6 +10,10 @@
         </action>
     </package>
     <package name="misacciones" extends="struts-default">
+        
+        <action name="cargaInicial" class="acciones.cargaInicialAction">
+            <result name="success">/index.jsp</result>
+        </action>
         <action name="irDeporte" class="acciones.listarEventosAction">
             <result name="success">/deporteIndex.jsp</result>
         </action>
@@ -48,7 +52,7 @@
             <result name="success">/adminDeportistaIndex.jsp</result>
             <result name="error">/adminIndex.jsp</result>
         </action>
-         <action name="anadirDeportista" class="acciones.anadirDeportistaAction">
+        <action name="anadirDeportista" class="acciones.anadirDeportistaAction">
             <result name="success">/adminDeportistaIndex.jsp</result>
             <result name="input">/adminDeportistaIndex.jsp</result>
             <result name="error">/adminDeportistaIndex.jsp</result>
@@ -83,11 +87,11 @@
         </action>
         
         <!--GESTIONAR EQUIPOS-->
-         <action name="gestionarEquipos" class="acciones.gestionarEquiposAction">
+        <action name="gestionarEquipos" class="acciones.gestionarEquiposAction">
             <result name="success">/adminEquipoIndex.jsp</result>
             <result name="error">/adminIndex.jsp</result>
         </action>
-         <action name="anadirEquipo" class="acciones.anadirEquipoAction">
+        <action name="anadirEquipo" class="acciones.anadirEquipoAction">
             <result name="success">/adminEquipoIndex.jsp</result>
             <result name="input">/adminEquipoIndex.jsp</result>
             <result name="error">/adminEquipoIndex.jsp</result>
@@ -99,6 +103,12 @@
         <action name="mostrarEquipo" class="acciones.detallesEquipoAction">
             <result name="success">/verDetallesEquipo.jsp</result> 
             <result name="error">/adminEquipoIndex.jsp</result>
+        </action>
+        
+        <action name="cerrarSesion" class="acciones.cerrarSesionAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">cargaInicial</param>
+            </result>
         </action>
         
     </package>

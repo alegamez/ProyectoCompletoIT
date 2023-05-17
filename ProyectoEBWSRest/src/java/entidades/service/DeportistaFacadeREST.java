@@ -58,14 +58,14 @@ public class DeportistaFacadeREST extends AbstractFacade<Deportista> {
         super.remove(super.find(id));
     }
 
-    /*
+    
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Deportista find(@PathParam("id") Integer id) {
         return super.find(id);
     }
-     */
+     
     @GET
     @Path("{id_equipo}/{id_pais}/{id_deporte}/{sexo}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})

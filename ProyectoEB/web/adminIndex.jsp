@@ -14,7 +14,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Panel de Administración</title>
         <s:head/>
-        <link rel="stylesheet" type="text/css" href="css/adminIndx.css">
+        <link rel="stylesheet" type="text/css" href="css/adminIndex.css">
     </head>
     <body>
         <header>

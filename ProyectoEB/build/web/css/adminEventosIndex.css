@@ -4,16 +4,15 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 17-may-2023, 12:02:59
+    Created on : 18-may-2023, 11:27:34
     Author     : Ale Gamez
 */
-
-
 body {
     font-family: Arial, sans-serif;
     background-color: #f7f7f7;
     margin: 0;
     padding: 0;
+   
 }
 
 header {
@@ -24,66 +23,78 @@ header {
     line-height: 50px; 
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-.containerTablas {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 20px;
-}
 .anadir_form {
     text-align: center;
     background-color: #f2f2f2;
     padding: 20px;
     margin-bottom: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-top: 30px;
+
 }
 
-.tablasEquipo {
+.filtrarEventos{
+    text-align: left;
+    margin-left: 45%;
+    border-radius: 20px;
+}
+
+.containerTablas{
+    margin: 20px;
+    margin-left: 10%;
+
+}
+.tablasEvento {
+    width: 40%;
+    height: 250px;
     display: inline-block;
-    width: 20%;
-    height: 200px; /* Establece la altura deseada para las tablas */
+    background-color: white;
+    padding: 10px;
     margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
     text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    transition: background-color 0.3s ease;
     vertical-align: bottom; 
+    border-radius: 20px;
 }
 
-.tablasEquipo:hover {
-    background-color: #f2f2f2;
+.tablasEvento:hover {
+    background-color: #f9f9f9;
 }
 
-.accionesEquipo {
+.tablasEvento table {
+    width: 100%;
+
+}
+
+.tablasEvento th,
+.tablasEvento td {
+
+    padding: 5px;
+    text-align: left;
+}
+
+.tablasEvento form {
+    display: inline;
+}
+
+
+
+.accionesEvento {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
 }
 
-.accionesEquipo form {
+.accionesEvento form {
     display: inline-block;
-    
+
+
 }
-
-
-
-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-form {
-    text-align: center;
-}
-
-table {
-    margin: 0 auto;
-}
-
 
 
 input[type="submit"] {

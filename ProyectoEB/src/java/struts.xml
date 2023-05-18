@@ -79,6 +79,16 @@
             <result name="success">/adminDeportistaIndex.jsp</result>
             <result name="error">/adminDeportistaIndex.jsp</result>
         </action>
+        <action name="gestionarDeportista" class="acciones.actualizarDeportistaAction">
+            <result name="success">/actualizarDeportista.jsp</result>
+            
+        </action>
+        <action name="actualizarDeportista" class="acciones.actualizarDeportistaAction" method="actualizarDeportista">
+            <result name="success">/adminDeportistaIndex.jsp</result>
+            <result name="input">/actualizarDeportista.jsp</result>
+            <result name="error">/actualizarDeportista.jsp</result>
+            
+        </action>
         
         
         <!--GESTIONAR EVENTOS-->
@@ -99,10 +109,21 @@
             <result name="success">/adminEventosIndex.jsp</result>
             <result name="error">/adminEventosIndex.jsp</result>
         </action>
+        <action name="editarEvento" class="acciones.actualizarEventoAction">
+            <result name="success">/actualizarEvento.jsp</result>
+            <result name="error">/adminEventosIndex.jsp</result>
+        </action>
+        <action name="actualizarEvento" class="acciones.actualizarEventoAction" method="actualizarEvento">
+            <result name="success" type="redirectAction">
+                <param name="actionName">editarEvento</param>
+            </result>
+            <result name="input">/actualizarEvento.jsp</result>
+            <result name="error">/actualizarEvento.jsp</result>
+        </action>
         
         <!--GESTIONAR EQUIPOS-->
         <action name="gestionarEquipos" class="acciones.gestionarEquiposAction">
-            <result name="success">/adminEquipoIndex.jsp</result>
+            <result name="success">/adminDeporteIndex.jsp</result>
             <result name="error">/adminIndex.jsp</result>
         </action>
         <action name="anadirEquipo" class="acciones.anadirEquipoAction">

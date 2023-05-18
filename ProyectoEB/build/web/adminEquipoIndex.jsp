@@ -69,7 +69,11 @@
             </s:iterator>
 
         </div>
-
+        <div class="volver-form">
+            <s:form action="adminIndex.jsp">
+                <s:submit value="Volver" />
+            </s:form>
+        </div>
         <s:form action="cerrarSesion">
             <s:submit key="submit_cerrarSesion" />
         </s:form>

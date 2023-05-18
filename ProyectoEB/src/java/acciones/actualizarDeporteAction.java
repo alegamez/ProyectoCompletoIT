@@ -22,6 +22,7 @@ import javax.ws.rs.core.GenericType;
 public class actualizarDeporteAction extends ActionSupport {
 
     private int id;
+    
 
     public String getNombre() {
         return nombre;

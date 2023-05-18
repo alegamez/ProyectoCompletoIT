@@ -4,7 +4,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 17-may-2023, 19:50:54
+    Created on : 18-may-2023, 10:07:53
     Author     : Ale Gamez
 */
 
@@ -13,21 +13,24 @@ body {
     background-color: #f7f7f7;
     margin-left: 5%;
     padding: 0;
+
 }
 
-h1 {
-    text-align: center;
-}
+
 
 .gestion {
     display: inline-block;
     text-align: center;
     margin-left: 5%;
     padding: 20px;
+    margin-top:10%;
 }
-
+h1 {
+    text-align: center;
+    margin-left: -60px;
+}
 .gestion input[type="submit"] {
-    
+
     height: 200px;
     width: 200px;
     background-color: #fff;
@@ -66,5 +69,5 @@ h1 {
 
 .cerrarSesion input[type="submit"]:hover {
     background-color: #286090;
-    
+
 }

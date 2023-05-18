@@ -16,6 +16,14 @@ body {
     padding: 0;
 }
 
+header {
+    background-color: #333;
+    color: #fff;
+    height: 50px;
+    text-align: center;
+    line-height: 50px; 
+}
+
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -89,3 +97,15 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #286090;}
+
+.volver-form {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+
+.cerrarSesion {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}

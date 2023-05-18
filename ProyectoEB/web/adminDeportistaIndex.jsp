@@ -13,7 +13,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Juegos Olímpicos Paris 2024 - Administrador</title>
-      
+
         <s:head/>
         <link rel="stylesheet" type="text/css" href="css/.css">
     </head>
@@ -28,7 +28,7 @@
             <s:textfield key="apellido_anadirDeportista" name="apellido" />
             <s:textfield key="edad_anadirDeportista" name="edad" />
             <s:radio name="sexo" key="sexo_anadirDeportista" list="{'M', 'F'}" />
-           <s:select key="equipo_anadirDeportista" name="id_equipo" list="%{#session.listaEquipos}" listValue="nombre" listKey="id" headerKey="" headerValue="Sin equipo" />
+            <s:select key="equipo_anadirDeportista" name="id_equipo" list="%{#session.listaEquipos}" listValue="nombre" listKey="id" headerKey="" headerValue="Sin equipo" />
             <s:select key="deporte_anadirDeportista"  name="id_deporte"  list="%{#session.listaDeportes}" listValue="nombre + ' ' + sexo" listKey="id" />
             <s:select key="pais_anadirDeportista" name="id_pais" list="%{#session.listaPaises}" listValue="nombre" listKey="id"/>
             <s:submit key="submit_añadirDeportista" />
@@ -64,20 +64,31 @@
                     <td><s:property value="#deportista.idPais.nombre"/></td>
                     <td><s:property value="#deportista.idEquipo.nombre"/></td>   
                     <td>
+                        <s:form action="gestionarDeportista">
+                            <input type="hidden" name="id" value="<s:property value="#deportista.id"/>"/>
+                            <input type="submit" value="Gestionar"/>
+                        </s:form>
+                    </td>
+                    <td>
                         <s:form action="eliminarDeportista">
                             <input type="hidden" name="id" value="<s:property value="#deportista.id"/>"/>
                             <input type="submit" value="Eliminar"/>
                         </s:form>
                     </td>
+
                 </tr>
 
             </s:iterator>
         </table>
 
-
+        <div class="volver-form">
+            <s:form action="adminIndex.jsp">
+                <s:submit value="Volver" />
+            </s:form>
+        </div>
 
         <s:form action="cerrarSesion">
-            <s:submit key="sumbit_cerrarSesion" />
+            <s:submit key="submit_cerrarSesion" />
         </s:form>
     </body>
 </html>

@@ -19,21 +19,25 @@
             <h1>Lista de Eventos</h1>
         </header> 
 
-       
+
         <s:iterator value="#session.listaEventos" var="evento">
             <div class="eventos">
-        <tr>
-            <td>
-                <s:form action="mostrarEvento">
-                    <s:hidden name="id" value="%{#evento.id}" />
-                    <s:hidden name="id_equipo_local" value="%{#evento.idEquipoLocal.id}" />
-                    <s:hidden name="id_equipo_visitante" value="%{#evento.idEquipoVisitante.id}" />
-                    <s:submit value="%{#evento.nombre}" />
-                </s:form>
-            </td>
-        </tr>
+                <tr>
+                    <td>
+                        <s:form action="mostrarEvento">
+                            <s:hidden name="id" value="%{#evento.id}" />
+                            <s:hidden name="id_equipo_local" value="%{#evento.idEquipoLocal.id}" />
+                            <s:hidden name="id_equipo_visitante" value="%{#evento.idEquipoVisitante.id}" />
+                            <s:submit value="%{#evento.nombre}" />
+                        </s:form>
+                    </td>
+                </tr>
+            </div>
+        </s:iterator>
+        <div class="volver-form">
+            <s:form action="index.jsp">
+                <s:submit value="Volver" />
+            </s:form>
         </div>
-    </s:iterator>
-
-</body>
+    </body>
 </html>

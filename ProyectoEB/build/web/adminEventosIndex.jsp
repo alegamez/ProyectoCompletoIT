@@ -18,7 +18,7 @@
     </head>
     <body>
         <header>
-            <h1>Gestionar Eventos</h1>
+            <h1>Administrador - Gestionar Eventos</h1>
         </header>
 
 
@@ -30,7 +30,7 @@
                 <s:textfield key="nombre_anadirEvento" name="nombre" />
                 <s:textfield key="fecha_anadirEvento" name="fecha" />
                 <s:textfield key="hora_anadirEvento" name="hora" />
-                <s:select key="deporte_anadirEvento" name="idDeporte" list="%{#session.listaDeportes}" listValue="nombre" listKey="id" />
+                <s:select key="deporte_anadirEvento" name="idDeporte" list="%{#session.listaDeportes}" listValue="nombre + ' '  + sexo" listKey="id" />
                 <s:select key="equipoLocal_anadirEvento" name="idEquipoLocal" list="%{#session.listaEquipos}" listValue="nombre" listKey="id" headerKey="" headerValue="Sin equipo" />
                 <s:select key="equipoVisitante_anadirEvento" name="idEquipoVisitante" list="%{#session.listaEquipos}" listValue="nombre" listKey="id" headerKey="" headerValue="Sin equipo" />
                 <s:submit key="submit_anadirEvento" />

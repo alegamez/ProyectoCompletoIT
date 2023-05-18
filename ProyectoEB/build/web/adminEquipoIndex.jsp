@@ -18,7 +18,7 @@
     </head>
     <body>
         <header>
-            <h1>Gestionar Equipos</h1>
+            <h1>Administrador - Gestionar Equipos</h1>
         </header>
 
         <div class="container">
@@ -29,7 +29,7 @@
                 <s:form action="anadirEquipo">
                     <s:textfield key="nombre_anadirEquipo" name="nombre" />
                     <s:select key="pais_anadirEquipo" name="idPais" list="%{#session.listaPaises}" listValue="nombre" listKey="id" />
-                    <s:select key="deporte_anadirEquipo" name="idDeporte" list="%{#session.listaDeportes}" listValue="nombre" listKey="id" />
+                    <s:select key="deporte_anadirEquipo" name="idDeporte" list="%{#session.listaDeportes}" listValue="nombre + ' ' + sexo" listKey="id" />
                     <s:submit key="submit_anadirEquipo" />
                 </s:form>
             </div>
@@ -56,7 +56,7 @@
                         </s:form>
 
                         <s:form action="editarEquipo">
-                            <s:hidden name="idEquipo" value="%{#equipo.id}" />
+                            <s:hidden name="id" value="%{#equipo.id}" />
                             <s:submit value="Editar" />
                         </s:form>
 
@@ -74,8 +74,10 @@
                 <s:submit value="Volver" />
             </s:form>
         </div>
+        <div class="cerrarSesion">
         <s:form action="cerrarSesion">
             <s:submit key="submit_cerrarSesion" />
         </s:form>
+        </div>
     </body>
 </html>

@@ -14,16 +14,21 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Juegos Olímpicos Paris 2024 - Administrador</title>
         <s:head/>
+        <link rel="stylesheet" type="text/css" href="css/adminDeporteIndex.css">
+
 
     </head>
     <body>
         <header>
-            <h1>Juegos Olímpicos Paris 2024 - Administrador</h1>
+            <h1>Administrador - Gestionar Deportes</h1>
         </header>
 
         <h2>Lista de Deportes</h2>
+        <div class="container">
+      
         <table>
-            <s:iterator value="#session.listaDeportes" var="deporte">   
+            <s:iterator value="#session.listaDeportes" var="deporte">  
+                
                 <tr>
                     <td>
                         <s:property value="#deporte.nombre"/> <s:property value="#deporte.sexo"/>
@@ -45,7 +50,9 @@
                 </tr>
             </s:iterator>
         </table>
-
+                 
+        </div>
+        <div class="anadir_form">
         <h2>Añadir Deporte</h2>
         <s:form action="anadirDeporte">
             <s:textfield key="nombre_añadirDeporte" name="nombre" />
@@ -53,10 +60,16 @@
             <s:radio name="tipo" key="tipo_añadirDeporte" list="{'Individual', 'Equipo'}" />
             <s:submit key="submit_añadirDeporte" />
         </s:form>
-
+        </div>
+       <div class="volver-form">
+            <s:form action="adminIndex.jsp">
+                <s:submit value="Volver" />
+            </s:form>
+        </div>
+        <div class="cerrarSesion">
         <s:form action="cerrarSesion">
-            <s:submit value="Cerrar sesión" />
+            <s:submit key="submit_cerrarSesion" />
         </s:form>
-
+        </div>
     </body>
 </html>

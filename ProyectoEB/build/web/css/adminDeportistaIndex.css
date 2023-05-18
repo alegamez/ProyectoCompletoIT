@@ -17,47 +17,131 @@ body {
     background-color: #f7f7f7;
     margin: 0;
     padding: 0;
-    margin-left: 40%;
 }
 
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 20px;
+header {
+    background-color: #333;
+    color: #fff;
+    height: 50px;
+    text-align: center;
+    line-height: 50px; 
+}
+h2{
+    text-align: center;
+}
+input[type="submit"] {
+    background-color: #337ab7;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
-.event-table {
-    width: calc(50% - 20px);
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+input[type="submit"]:hover {
+    background-color: #286090;
+}
+
+
+.container table {
+
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container input{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.container table td,
+.container table th {
+    padding: 5px;
+    text-align: center;
+}
+
+.container table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.container table tr:hover {
+    background-color: #e6e6e6;
+}
+
+.anadir_form {
+    margin-top:2%;
+    margin-left: 25%;
+    max-width: 50%;
+    text-align: left;
+    background-color: #f2f2f2;
     padding: 20px;
     margin-bottom: 20px;
-    font-size: 14px;
+    transition: background-color 0.3s ease;
+    border-radius: 20px;
 }
 
-.event-table h2 {
-    color: #333;
-    font-size: 16px;
-    margin-bottom: 10px;
+.anadir_form:hover {
+    background-color: #dcdcdc; 
+}
+.anadir_form #select{
+    width: 90%;
+    height: 25px;
+
 }
 
-.event-table table {
-    width: 100%;
+.anadir_form input[type="text"]{
+    width: 90%;
+}
+.anadir_form input[type="radio"]{
+
+    width: 20%;
 }
 
-.event-table th,
-.event-table td {
-    padding: 8px;
+.anadir_form table{
+    margin-left: 20%;
 }
 
-.event-table th {
-    background-color: #f1f1f1;
-    font-weight: bold;
-    text-align: left;
+.anadir_form input[type="submit"] {
+    margin-top: 4%;
+    margin-right: 40%;
+}
+.filtrarDeportistas input[type="submit"]{
+    margin-top: 4%;
+    margin-right: 30%;
 }
 
-.event-table td {
-    border-bottom: 1px solid #ccc;
+
+
+.filtrarDeportistas{
+    max-width:30%;
+    margin: 0 auto;
+    text-align: center;
+
+}
+.filtrarDeportistas select{
+    margin-left: 15%;
+    width: 400px;
+}
+
+
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+.volver-form {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+
+.cerrarSesion {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 }

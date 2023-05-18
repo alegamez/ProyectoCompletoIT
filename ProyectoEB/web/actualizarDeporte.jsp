@@ -18,7 +18,7 @@
     </head>
     <body>
         <header>
-            <h1>Juegos Olímpicos Paris 2024 - Administrador</h1>
+            <h1>Administrador - Gestionar Deportes</h1>
         </header>
 
         <h2>Gestionar Deporte</h2>
@@ -34,7 +34,7 @@
         </s:form>
         </div>
         <div class="volver-form">
-        <s:form action="adminIndex">
+        <s:form action="adminDeporteIndex.jsp">
             <s:submit value="Volver" />
         </s:form>
         </div>

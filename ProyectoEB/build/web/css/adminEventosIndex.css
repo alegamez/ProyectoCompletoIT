@@ -12,7 +12,7 @@ body {
     background-color: #f7f7f7;
     margin: 0;
     padding: 0;
-   
+
 }
 
 header {
@@ -30,11 +30,16 @@ header {
     margin-bottom: 20px;
     max-width: 800px;
     margin: 0 auto;
-    border-radius: 20px;
+    
     margin-top: 30px;
 
+    transition: background-color 0.3s ease;
+    border-radius: 20px;
 }
 
+.anadir_form:hover {
+    background-color: #dcdcdc; 
+}
 .filtrarEventos{
     text-align: left;
     margin-left: 45%;
@@ -67,7 +72,7 @@ header {
 
 .tablasEvento table {
     width: 100%;
-
+    text-align: center;
 }
 
 .tablasEvento th,
@@ -87,7 +92,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 5%;
 }
 
 .accionesEvento form {

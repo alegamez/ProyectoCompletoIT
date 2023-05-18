@@ -18,7 +18,7 @@
 </head>
 <body>
     <header>
-        <h1>Juegos Olímpicos Paris 2024 - Administrador</h1>
+        <h1>Administrador - Gestionar Deportistas</h1>
     </header>
 
     <h2>Gestionar Deporte</h2>

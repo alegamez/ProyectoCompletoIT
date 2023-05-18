@@ -19,10 +19,9 @@
     </head>
     <body>
         <header>
-            <h1>Juegos Olímpicos Paris 2024 - Administrador</h1>
+            <h1>Administrador - Gestionar Eventos</h1>
         </header>
 
-        <h2>Gestionar Evento</h2>
 
         <div class="formActualizar">
             <h2>Actualizar evento</h2>
@@ -35,8 +34,8 @@
                     <s:select key="deportista_disponibleEvento" name="id_deportista" list="%{#session.listaDeportistasDisponibles}" listValue="nombre +' '+ apellido" listKey="id" headerKey="" headerValue="Deportistas diponibles" />
                 </s:if>
                 <s:else>
-                    <s:select key="equipoLocal_anadirEvento" name="idEquipoLocal" list="%{#session.listaEquipos}" listValue="nombre" listKey="id" headerKey="" headerValue="Sin equipo" />
-                    <s:select key="equipoVisitante_anadirEvento" name="idEquipoVisitante" list="%{#session.listaEquipos}" listValue="nombre" listKey="id" headerKey="" headerValue="Sin equipo" />
+                    <s:select key="equipoLocal_anadirEvento" name="idEquipoLocal" list="%{#session.listaEquipos}" listValue="nombre" listKey="id" headerKey="%{#session.evento.IdEquipoLocal.id}" headerValue="%{#session.evento.IdEquipoLocal.nombre}" />
+                    <s:select key="equipoVisitante_anadirEvento" name="idEquipoVisitante" list="%{#session.listaEquipos}" listValue="nombre" listKey="id" headerKey="%{#session.evento.IdEquipoVisitante.id}" headerValue="%{#session.evento.IdEquipoVisitante.nombre}" />
                 </s:else>
                  <s:hidden name="id" value="%{#session.evento.id}" />
                 <s:submit key="submit_actualizarEvento" />

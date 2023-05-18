@@ -13,82 +13,94 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Juegos Olímpicos Paris 2024 - Administrador</title>
-
+        <link rel="stylesheet" type="text/css" href="css/adminDeportistaIndex.css">
         <s:head/>
         <link rel="stylesheet" type="text/css" href="css/.css">
     </head>
     <body>
         <header>
-            <h1>Juegos Olímpicos Paris 2024 - Administrador</h1>
+            <h1>Administrador - Gestionar Deportistas</h1>
         </header>
-        <h2>Añadir Deportista</h2>
 
-        <s:form action="anadirDeportista">
-            <s:textfield key="nombre_anadirDeportista" name="nombre" />
-            <s:textfield key="apellido_anadirDeportista" name="apellido" />
-            <s:textfield key="edad_anadirDeportista" name="edad" />
-            <s:radio name="sexo" key="sexo_anadirDeportista" list="{'M', 'F'}" />
-            <s:select key="equipo_anadirDeportista" name="id_equipo" list="%{#session.listaEquipos}" listValue="nombre" listKey="id" headerKey="" headerValue="Sin equipo" />
-            <s:select key="deporte_anadirDeportista"  name="id_deporte"  list="%{#session.listaDeportes}" listValue="nombre + ' ' + sexo" listKey="id" />
-            <s:select key="pais_anadirDeportista" name="id_pais" list="%{#session.listaPaises}" listValue="nombre" listKey="id"/>
-            <s:submit key="submit_añadirDeportista" />
-        </s:form>
+        <div class="anadir_form">
+            <h2>Añadir Deportista</h2>
+            <s:form action="anadirDeportista">
+                <s:textfield key="nombre_anadirDeportista" name="nombre" />
+                <s:textfield key="apellido_anadirDeportista" name="apellido" />
+                <s:textfield key="edad_anadirDeportista" name="edad" />
+                <s:radio name="sexo" key="sexo_anadirDeportista" list="{'M', 'F'}" />
+                <s:select id="select" key="equipo_anadirDeportista" name="id_equipo" list="%{#session.listaEquipos}" listValue="nombre" listKey="id" headerKey="" headerValue="Sin equipo" />
+                <s:select id="select" key="deporte_anadirDeportista"  name="id_deporte"  list="%{#session.listaDeportes}" listValue="nombre + ' ' + sexo" listKey="id" />
+                <s:select id="select" key="pais_anadirDeportista" name="id_pais" list="%{#session.listaPaises}" listValue="nombre" listKey="id"/>
+                <s:submit key="submit_añadirDeportista" />
+            </s:form>
+        </div>
 
-        <h2>Lista de Deportistas</h2>
+        <div class="filtrarDeportistas">
+            <h4>Filtrar Deportistas</h4>
+            <s:form action="filtrarDeportistas">
 
-        <h4>Filtrar Deportistas</h4>
-        <s:form action="filtrarDeportistas">
-            <s:select name="id_pais" list="%{#session.listaPaises}" listValue="nombre" listKey="id" headerKey="" headerValue="Todos los paises" />
-            <s:select name="id_equipo"  list="%{#session.listaEquipos}" listValue="nombre" listKey="id"  headerKey="" headerValue="Todos los equipos" />
-            <s:select name="id_deporte"  list="%{#session.listaDeportes}" listValue="nombre + ' ' + sexo" listKey="id"  headerKey="" headerValue="Todos los deportes" />
-            <s:select name="sexo" list="{'M', 'F'}" headerKey="" headerValue="Ambos sexos" />
-            <s:submit value="Filtrar" />
-        </s:form>
-        <table>
-            <tr>
-                <th><s:text name="nombre_tablaDeportista"/></th>
-                <th><s:text name="apellido_tablaDeportista"/></th>
-                <th><s:text name="sexo_tablaDeportista"/></th>
-                <th><s:text name="edad_tablaDeportista"/></th>
-                <th><s:text name="deporte_tablaDeportista"/></th>
-                <th><s:text name="pais_tablaDeportista"/></th>
-                <th><s:text name="equipo_tablaDeportista"/></th>
-            </tr>
-            <s:iterator value="#session.listaDeportistas" var="deportista">   
-                <tr>                   
-                    <td><s:property value="#deportista.nombre"/></td>
-                    <td><s:property value="#deportista.apellido"/></td>
-                    <td><s:property value="#deportista.sexo"/></td>
-                    <td><s:property value="#deportista.edad"/></td>
-                    <td><s:property value="#deportista.idDeporte.nombre"/></td>
-                    <td><s:property value="#deportista.idPais.nombre"/></td>
-                    <td><s:property value="#deportista.idEquipo.nombre"/></td>   
-                    <td>
-                        <s:form action="gestionarDeportista">
-                            <input type="hidden" name="id" value="<s:property value="#deportista.id"/>"/>
-                            <input type="submit" value="Gestionar"/>
-                        </s:form>
-                    </td>
-                    <td>
-                        <s:form action="eliminarDeportista">
-                            <input type="hidden" name="id" value="<s:property value="#deportista.id"/>"/>
-                            <input type="submit" value="Eliminar"/>
-                        </s:form>
-                    </td>
+                <s:select  name="id_pais" list="%{#session.listaPaises}" listValue="nombre" listKey="id" headerKey="" headerValue="Todos los paises" />
 
+                <s:select   name="id_equipo"  list="%{#session.listaEquipos}" listValue="nombre" listKey="id"  headerKey="" headerValue="Todos los equipos" />
+
+                <s:select  name="id_deporte"  list="%{#session.listaDeportes}" listValue="nombre + ' ' + sexo" listKey="id"  headerKey="" headerValue="Todos los deportes" />
+
+                <s:select   name="sexo" list="{'M', 'F'}" headerKey="" headerValue="Ambos sexos" />
+
+                <s:submit value="Filtrar" />
+
+            </s:form>
+        </div>
+
+        <div class="container">
+            <h2>Lista de Deportistas</h2>
+            <table>
+                <tr>
+                    <th><s:text name="nombre_tablaDeportista"/></th>
+                    <th><s:text name="apellido_tablaDeportista"/></th>
+                    <th><s:text name="sexo_tablaDeportista"/></th>
+                    <th><s:text name="edad_tablaDeportista"/></th>
+                    <th><s:text name="deporte_tablaDeportista"/></th>
+                    <th><s:text name="pais_tablaDeportista"/></th>
+                    <th><s:text name="equipo_tablaDeportista"/></th>
                 </tr>
+                <s:iterator value="#session.listaDeportistas" var="deportista">   
+                    <tr>                   
+                        <td><s:property value="#deportista.nombre"/></td>
+                        <td><s:property value="#deportista.apellido"/></td>
+                        <td><s:property value="#deportista.sexo"/></td>
+                        <td><s:property value="#deportista.edad"/></td>
+                        <td><s:property value="#deportista.idDeporte.nombre"/></td>
+                        <td><s:property value="#deportista.idPais.nombre"/></td>
+                        <td><s:property value="#deportista.idEquipo.nombre"/></td>   
+                        <td>
+                            <s:form action="gestionarDeportista">
+                                <input type="hidden" name="id" value="<s:property value="#deportista.id"/>"/>
+                                <input type="submit" value="Gestionar"/>
+                            </s:form>
+                        </td>
+                        <td>
+                            <s:form action="eliminarDeportista">
+                                <input type="hidden" name="id" value="<s:property value="#deportista.id"/>"/>
+                                <input type="submit" value="Eliminar"/>
+                            </s:form>
+                        </td>
 
-            </s:iterator>
-        </table>
+                    </tr>
 
+                </s:iterator>
+            </table>
+        </div>
         <div class="volver-form">
             <s:form action="adminIndex.jsp">
                 <s:submit value="Volver" />
             </s:form>
         </div>
-
-        <s:form action="cerrarSesion">
-            <s:submit key="submit_cerrarSesion" />
-        </s:form>
+        <div class="cerrarSesion">
+            <s:form action="cerrarSesion">
+                <s:submit key="submit_cerrarSesion" />
+            </s:form>
+        </div>
     </body>
 </html>

@@ -123,7 +123,7 @@
         
         <!--GESTIONAR EQUIPOS-->
         <action name="gestionarEquipos" class="acciones.gestionarEquiposAction">
-            <result name="success">/adminDeporteIndex.jsp</result>
+            <result name="success">/adminEquipoIndex.jsp</result>
             <result name="error">/adminIndex.jsp</result>
         </action>
         <action name="anadirEquipo" class="acciones.anadirEquipoAction">
@@ -139,6 +139,16 @@
             <result name="success">/verDetallesEquipo.jsp</result> 
             <result name="error">/adminEquipoIndex.jsp</result>
         </action>
+        <action name="editarEquipo" class="acciones.actualizarEquipoAction">
+            <result name="success">/actualizarEquipo.jsp</result> 
+            <result name="error">/adminEquipoIndex.jsp</result>
+        </action>
+        <action name="actualizarEquipo" class="acciones.actualizarEquipoAction" method="actualizarEquipo">
+            <result name="success">/adminEquipoIndex.jsp</result>
+            <result name="input">/actualizarEquipo.jsp</result> 
+            <result name="error">/actualizarEquipo.jsp</result>
+        </action>
+        
         <!--CERRAR SESION-->
         <action name="cerrarSesion" class="acciones.cerrarSesionAction">
             <result name="success" type="redirectAction">

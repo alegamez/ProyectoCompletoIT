@@ -19,11 +19,11 @@
     </head>
     <body>
         <header>
-            <h1>Juegos Olímpicos Paris 2024</h1>
+            <h1>Juegos Olímpicos París 2024</h1>
         </header>
-       
-            <s:iterator value="#session.listaDeportes" var="deporte">  
-                <div class="deportes">
+
+        <s:iterator value="#session.listaDeportes" var="deporte">  
+            <div class="deportes">
                 <tr>
                     <td>
                         <s:form action="irDeporte">
@@ -32,15 +32,18 @@
                         </s:form>
                     </td>
                 </tr>
-                 </div>
-            </s:iterator>
-        
+            </div>
+        </s:iterator>
+
         <div class="iniciarSesion">
             <s:form action="iniciarSesion">
-                <s:text  name="preg_login" />
+                <div class="texto">
+                    <s:text  name="preg_login"  />
+                </div>
                 <s:textfield key="usuario"/>
                 <s:password key="password"/>
                 <s:submit key="submit_login"/>
+
             </s:form>
         </div>
 

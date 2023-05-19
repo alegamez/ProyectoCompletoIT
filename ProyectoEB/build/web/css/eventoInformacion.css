@@ -68,6 +68,12 @@ table th, table td {
     border-bottom: 1px solid #ddd;
 }
 
+header:hover,.container-deportistas:hover,.container-equipo1:hover,
+.container-equipo2:hover {
+    background-color: #f2f2f2;
+    transition: background-color 0.3s ease;
+}
+
 table th {
     background-color: #f2f2f2;
 }

@@ -12,49 +12,43 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Juegos Olímpicos Paris 2024 - Administrador</title>
+        <title><s:text name="tituloAdmin"/></title>
         <link rel="stylesheet" type="text/css" href="css/adminDeportistaIndex.css">
         <s:head/>
-        <link rel="stylesheet" type="text/css" href="css/.css">
+
     </head>
     <body>
         <header>
-            <h1>Administrador - Gestionar Deportistas</h1>
+            <h1><s:text name="tituloGestionarDeportistas"/></h1>
         </header>
 
         <div class="anadir_form">
-            <h2>Añadir Deportista</h2>
+            <h2><s:text name="submit_anadirDeportista"/></h2>
             <s:form action="anadirDeportista">
                 <s:textfield key="nombre_anadirDeportista" name="nombre" />
                 <s:textfield key="apellido_anadirDeportista" name="apellido" />
                 <s:textfield key="edad_anadirDeportista" name="edad" />
                 <s:radio name="sexo" key="sexo_anadirDeportista" list="{'M', 'F'}" />
-                <s:select id="select" key="equipo_anadirDeportista" name="id_equipo" list="%{#session.listaEquipos}" listValue="nombre" listKey="id" headerKey="" headerValue="Sin equipo" />
-                <s:select id="select" key="deporte_anadirDeportista"  name="id_deporte"  list="%{#session.listaDeportes}" listValue="nombre + ' ' + sexo" listKey="id" />
-                <s:select id="select" key="pais_anadirDeportista" name="id_pais" list="%{#session.listaPaises}" listValue="nombre" listKey="id"/>
-                <s:submit key="submit_añadirDeportista" />
+                <s:select  key="equipo_anadirDeportista" name="id_equipo" list="%{#session.listaEquipos}" listValue="nombre" listKey="id" headerKey="" headerValue="Sin equipo" />
+                <s:select  key="deporte_anadirDeportista"  name="id_deporte"  list="%{#session.listaDeportes}" listValue="nombre + ' ' + sexo" listKey="id" />
+                <s:select key="pais_anadirDeportista" name="id_pais" list="%{#session.listaPaises}" listValue="nombre" listKey="id"/>
+                <s:submit key="submit_anadirDeportista" />
             </s:form>
         </div>
 
         <div class="filtrarDeportistas">
-            <h4>Filtrar Deportistas</h4>
+            <h4><s:text name="filtrar_deportistas"/></h4>
             <s:form action="filtrarDeportistas">
-
                 <s:select  name="id_pais" list="%{#session.listaPaises}" listValue="nombre" listKey="id" headerKey="" headerValue="Todos los paises" />
-
                 <s:select   name="id_equipo"  list="%{#session.listaEquipos}" listValue="nombre" listKey="id"  headerKey="" headerValue="Todos los equipos" />
-
                 <s:select  name="id_deporte"  list="%{#session.listaDeportes}" listValue="nombre + ' ' + sexo" listKey="id"  headerKey="" headerValue="Todos los deportes" />
-
                 <s:select   name="sexo" list="{'M', 'F'}" headerKey="" headerValue="Ambos sexos" />
-
-                <s:submit value="Filtrar" />
-
+                <s:submit key="filtrar" />
             </s:form>
         </div>
 
         <div class="container">
-            <h2>Lista de Deportistas</h2>
+            <h2><s:text name="lista_deportistas"/></h2>
             <table>
                 <tr>
                     <th><s:text name="nombre_tablaDeportista"/></th>
@@ -77,13 +71,13 @@
                         <td>
                             <s:form action="gestionarDeportista">
                                 <input type="hidden" name="id" value="<s:property value="#deportista.id"/>"/>
-                                <input type="submit" value="Gestionar"/>
+                                <input type="submit" key="submit_gestionar"/>
                             </s:form>
                         </td>
                         <td>
                             <s:form action="eliminarDeportista">
                                 <input type="hidden" name="id" value="<s:property value="#deportista.id"/>"/>
-                                <input type="submit" value="Eliminar"/>
+                                <input type="submit" key="submit_eliminar"/>
                             </s:form>
                         </td>
 
@@ -94,7 +88,7 @@
         </div>
         <div class="volver-form">
             <s:form action="adminIndex.jsp">
-                <s:submit value="Volver" />
+                <s:submit key="submit_volver" />
             </s:form>
         </div>
         <div class="cerrarSesion">

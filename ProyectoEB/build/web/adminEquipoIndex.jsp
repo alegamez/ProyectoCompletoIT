@@ -12,19 +12,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Gestionar Equipos</title>
+        <title><s:text name="tituloAdmin"/></title>
         <s:head/>
         <link rel="stylesheet" type="text/css" href="css/adminEquipoIndex.css">
     </head>
     <body>
         <header>
-            <h1>Administrador - Gestionar Equipos</h1>
+            <h1><s:text name="tituloGestionarEquipos"/></h1>
         </header>
 
         <div class="container">
 
             <div class="anadir_form">
-                <h2>Añadir nuevo equipo</h2>
+                <h2><s:text name="submit_anadirEquipo"/></h2>
 
                 <s:form action="anadirEquipo">
                     <s:textfield key="nombre_anadirEquipo" name="nombre" />
@@ -41,8 +41,8 @@
                     <h2><s:property value="#equipo.nombre"/></h2>
                     <table>
                         <tr>
-                            <th>País</th>
-                            <th>Deporte</th>
+                            <th><s:text name="pais_anadirEquipo"/></th>
+                            <th><s:text name="deporte_anadirEquipo"/></th>
                         </tr>
                         <tr>
                             <td><s:property value="#equipo.idPais.nombre"/></td>
@@ -52,17 +52,17 @@
                     <div class="accionesEquipo">
                         <s:form action="mostrarEquipo">
                             <s:hidden name="id" value="%{#equipo.id}" />
-                            <s:submit value="Ver detalles" />
+                            <s:submit key="submit_detalles" />
                         </s:form>
 
                         <s:form action="editarEquipo">
                             <s:hidden name="id" value="%{#equipo.id}" />
-                            <s:submit value="Editar" />
+                            <s:submit key="submit_gestionar" />
                         </s:form>
 
                         <s:form action="eliminarEquipo">
                             <s:hidden name="id" value="%{#equipo.id}" />
-                            <s:submit value="Eliminar" />
+                            <s:submit key="submit_eliminar" />
                         </s:form>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
         </div>
         <div class="volver-form">
             <s:form action="adminIndex.jsp">
-                <s:submit value="Volver" />
+                <s:submit key="submit_volver" />
             </s:form>
         </div>
         <div class="cerrarSesion">

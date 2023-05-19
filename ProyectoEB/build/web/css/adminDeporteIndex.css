@@ -60,11 +60,11 @@ table th {
     text-align: center;
 }
 
-table tr:nth-child(even) {
+.container table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-table tr:hover {
+.container table tr:hover {
     background-color: #e6e6e6;
 }
 

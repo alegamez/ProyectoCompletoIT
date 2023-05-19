@@ -12,31 +12,31 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Detalles del Equipo</title>
+        <title><s:text name="titulo"/></title>
         <s:head/>
         <link rel="stylesheet" type="text/css" href="css/detallesEquipo.css">
     </head>
     <body>
-        <h1>Detalles del Equipo</h1>
+        <h1><s:text name="detalles_equipo"/></h1>
 
         <div class="equipo-detalles">
             <h2><s:property value="#session.equipo.nombre" /></h2>
-            <p>Deporte: <s:property value="#session.equipo.idDeporte.nombre" /></p>
-            <p>País: <s:property value="#session.equipo.idPais.nombre" /></p>
+            <p><s:text name="deporte_tablaDeportista"/>: <s:property value="#session.equipo.idDeporte.nombre" /></p>
+            <p><s:text name="pais_tablaDeportista"/>: <s:property value="#session.equipo.idPais.nombre" /></p>
         </div>
 
         <div class="deportistas">
-            <h2>Deportistas del Equipo:</h2>
+            <h2><s:text name="deporte_tablaDeportista"/>:</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Sexo</th>
-                        <th>Edad</th>
-                        <th>Deporte</th>
-                        <th>País</th>
-                        <th>Equipo</th>
+                        <th><s:text name="nombre_tablaDeportista"/></th>
+                        <th><s:text name="apellido_tablaDeportista"/></th>
+                        <th><s:text name="sexo_tablaDeportista"/></th>
+                        <th><s:text name="edad_tablaDeportista"/></th>
+                        <th><s:text name="deporte_tablaDeportista"/></th>
+                        <th><s:text name="pais_tablaDeportista"/></th>
+                        <th><s:text name="equipo_tablaDeportista"/></th>
                     </tr>
                 </thead>
                 <tbody>

@@ -12,19 +12,20 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Juegos Olímpicos Paris 2024 - Administrador</title>
+        <title><s:text name="tituloAdmin"/></title>
         <link rel="stylesheet" type="text/css" href="css/actualizarDeporte.css">
     <s:head/>
 </head>
 <body>
     <header>
-        <h1>Administrador - Gestionar Deportistas</h1>
+        <h1><s:text name="tituloGestionarDeportistas"/></h1>
     </header>
 
-    <h2>Gestionar Deporte</h2>
+    
 
     <div class="formActualizar">
         <s:form action="actualizarDeportista">
+            <h2><s:text name="actualizarDeportista"/></h2>
             <s:textfield key="nombre_anadirDeportista" name="nombre" value="%{#session.deportista.nombre}"/>
             <s:textfield key="apellido_anadirDeportista" name="apellido" value="%{#session.deportista.apellido}" />
             <s:textfield key="edad_anadirDeportista" name="edad" value="%{#session.deportista.edad}"/>
@@ -37,7 +38,7 @@
     </div>
     <div class="volver-form">
         <s:form action="adminIndex.jsp">
-            <s:submit value="Volver" />
+            <s:submit key="submit_volver" />
         </s:form>
     </div>
 </body>

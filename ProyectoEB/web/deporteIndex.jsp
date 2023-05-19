@@ -10,13 +10,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Lista de Eventos</title>
+        <title><s:text name="titulo"/></title>
         <link rel="stylesheet" type="text/css" href="css/deporteIndex.css">
         <s:head/>
     </head>
     <body>
         <header>
-            <h1>Lista de Eventos</h1>
+            <h1><s:text name="listaEventos"/></h1>
         </header> 
 
 
@@ -36,7 +36,7 @@
         </s:iterator>
         <div class="volver-form">
             <s:form action="index.jsp">
-                <s:submit value="Volver" />
+                <s:submit key="submit_volver" />
             </s:form>
         </div>
     </body>

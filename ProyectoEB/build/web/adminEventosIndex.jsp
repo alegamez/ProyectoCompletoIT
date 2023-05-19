@@ -12,19 +12,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Gestionar Eventos</title>
+        <title><s:text name="tituloAdmin"/></title>
         <s:head/>
         <link rel="stylesheet" type="text/css" href="css/adminEventosIndex.css">
     </head>
     <body>
         <header>
-            <h1>Administrador - Gestionar Eventos</h1>
+            <h1><s:text name="tituloGestionarEventos"/></h1>
         </header>
 
 
 
         <div class="anadir_form">
-            <h2>Añadir nuevo evento</h2>
+            <h2><s:text name="submit_anadirEvento"/></h2>
 
             <s:form action="anadirEvento">
                 <s:textfield key="nombre_anadirEvento" name="nombre" />
@@ -38,10 +38,10 @@
         </div>
 
         <div class="filtrarEventos">
-            <h2>Filtrar eventos</h2>
+            <h2><s:text name="filtrar_eventos"/></h2>
             <s:form action="filtrarEventos">
                 <s:select name="id_deporte"  list="%{#session.listaDeportes}" listValue="nombre + ' ' + sexo" listKey="id"  headerKey="" headerValue="Todos los deportes" />
-                <s:submit value="Filtrar" />
+                <s:submit key="filtrar" />
             </s:form>
         </div>
 
@@ -53,12 +53,12 @@
                     <h2><s:property value="#evento.nombre"/></h2>
                     <table>
                         <tr>
-                            <th>Fecha</th>
-                            <th>Hora</th>
-                            <th>Deporte</th>
+                            <th><s:text name="fecha_anadirEvento"/></th>
+                            <th><s:text name="hora_anadirEvento"/></th>
+                            <th><s:text name="nombre_anadirEvento"/></th>
                                 <s:if test="%{#evento.idEquipoLocal != null}">
-                                <th>Equipo Local</th>
-                                <th>Equipo Visitante</th>
+                                <th><s:text name="equipoLocal"/></th>
+                                <th><s:text name="equipoVisitante"/></th>
                                 </s:if>
                         </tr>
                         <tr>
@@ -76,17 +76,17 @@
                             <s:hidden name="id" value="%{#evento.id}" />
                             <s:hidden name="id_equipo_local" value="%{#evento.idEquipoLocal.id}" />
                             <s:hidden name="id_equipo_visitante" value="%{#evento.idEquipoVisitante.id}" />
-                            <s:submit value="Ver deportistas" />
+                            <s:submit key="verDeportistas" />
                         </s:form>
 
                         <s:form action="editarEvento">
                             <s:hidden name="id" value="%{#evento.id}" />
-                            <s:submit value="Editar" />
+                            <s:submit key="submit_gestionar" />
                         </s:form>
 
                         <s:form action="eliminarEvento">
                             <s:hidden name="id" value="%{#evento.id}" />
-                            <s:submit value="Eliminar" />
+                            <s:submit key="submit_eliminar" />
                         </s:form>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
         </div>
         <div class="volver-form">
             <s:form action="adminIndex.jsp">
-                <s:submit value="Volver" />
+                <s:submit key="submit_volver" />
             </s:form>
         </div>
 

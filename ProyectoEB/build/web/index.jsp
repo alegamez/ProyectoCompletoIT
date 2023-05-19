@@ -12,14 +12,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Juegos Olímpicos Paris 2024</title>
+        <title><s:text name="titulo"/></title>
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <s:head/>
 
     </head>
     <body>
         <header>
-            <h1>Juegos Olímpicos París 2024</h1>
+            <h1><s:text name="titulo"/></h1>
         </header>
 
         <s:iterator value="#session.listaDeportes" var="deporte">  

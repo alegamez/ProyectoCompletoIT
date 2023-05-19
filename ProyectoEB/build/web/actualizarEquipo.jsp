@@ -10,15 +10,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Gestionar Equipo</title>
+        <title><s:text name="tituloAdmin"/></title>
         <link rel="stylesheet" type="text/css" href="css/actualizarDeporte.css">
     </head>
     <body>
         <header>
-            <h1>Administrador - Gestionar Equipos</h1>
+            <h1><s:text name="tituloGestionarEquipos"/></h1>
         </header>
         <div class="formActualizar">
-            <h2>Actualizar equipo</h2>
+            <s:text name="actualizarEquipo"/>
 
             <s:form action="actualizarEquipo">
                 <s:textfield key="nombre_anadirEquipo" name="nombre" value="%{#session.equipo.nombre}" />
@@ -30,7 +30,7 @@
         </div>
         <div class="volver-form">
             <s:form action="adminEquipoIndex.jsp">
-                <s:submit value="Volver" />
+                <s:submit key="submit_volver" />
             </s:form>
         </div>
     </body>

@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Olimpiadas</title>
+        <title><s:text name="titulo"/></title>
         <s:head/>
         <link rel="stylesheet" type="text/css" href="css/eventoInformacion.css">
 
@@ -21,22 +21,22 @@
             <h1><s:property value="#session.evento.nombre"/></h1>
         </header>
 
-        <h3>Fecha: <s:property value="#session.evento.fecha"/> - Hora: <s:property value="#session.evento.hora.toString()"/></h3>
+        <h3><s:text name="fecha_anadirEvento"/>: <s:property value="#session.evento.fecha"/> - <s:text name="hora_anadirEvento"/>: <s:property value="#session.evento.hora.toString()"/></h3>
 
         <s:if test="#session.deportistasEquipo1!=null">
 
             <div class="container-equipo1">
                 <h1><s:property value="#session.equipoLocal.nombre"/></h1>
-                <h2>Deportistas:</h2>
+                <h2><s:text name="deportistas"/></h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Sexo</th>
-                            <th>Edad</th>
-                            <th>Deporte</th>
-                            <th>País</th>
+                            <th><s:text name="nombre_tablaDeportista"/></th>
+                            <th><s:text name="apellido_tablaDeportista"/></th>
+                            <th><s:text name="sexo_tablaDeportista"/></th>
+                            <th><s:text name="edad_tablaDeportista"/></th>
+                            <th><s:text name="deporte_tablaDeportista"/></th>
+                            <th><s:text name="pais_tablaDeportista"/></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,16 +58,16 @@
             <hr>
             <div class="container-equipo2">
                 <h1><s:property value="#session.equipoVisitante.nombre"/></h1>
-                <h2>Deportistas:</h2>
+                <h2><s:text name="deportistas"/></h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Sexo</th>
-                            <th>Edad</th>
-                            <th>Deporte</th>
-                            <th>País</th>
+                            <th><s:text name="nombre_tablaDeportista"/></th>
+                            <th><s:text name="apellido_tablaDeportista"/></th>
+                            <th><s:text name="sexo_tablaDeportista"/></th>
+                            <th><s:text name="edad_tablaDeportista"/></th>
+                            <th><s:text name="deporte_tablaDeportista"/></th>
+                            <th><s:text name="pais_tablaDeportista"/></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -87,16 +87,16 @@
         </s:if>
         <s:else>
             <div class="container-deportistas">
-                <h2>Deportistas:</h2>
+                <h2><s:text name="deportistas"/></h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Sexo</th>
-                            <th>Edad</th>
-                            <th>Deporte</th>
-                            <th>País</th>
+                            <th><s:text name="nombre_tablaDeportista"/></th>
+                            <th><s:text name="apellido_tablaDeportista"/></th>
+                            <th><s:text name="sexo_tablaDeportista"/></th>
+                            <th><s:text name="edad_tablaDeportista"/></th>
+                            <th><s:text name="deporte_tablaDeportista"/></th>
+                            <th><s:text name="pais_tablaDeportista"/></th>
 
                         </tr>
                     </thead>
@@ -118,7 +118,7 @@
         </s:else>
         <div class="volver-form">
             <s:form action="deporteIndex.jsp">
-                <s:submit value="Volver" />
+                <s:submit key="submit_volver" />
             </s:form>
         </div>
     </body>

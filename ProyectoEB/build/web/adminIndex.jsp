@@ -12,13 +12,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Panel de Administración</title>
+        <title><s:text name="tituloAdmin"/></title>
         <s:head/>
         <link rel="stylesheet" type="text/css" href="css/adminIndex.css">
     </head>
     <body>
         <header>
-            <h1>Panel de Administración</h1>
+           <h1><s:text name="tituloAdminIndex"/></h1>
         </header>
 
         <div class="gestion">
@@ -51,6 +51,11 @@
         <div class="cerrarSesion">
             <s:form action="cerrarSesion">
                 <s:submit key="submit_cerrarSesion" class="logout-button"/>
+            </s:form>
+        </div>     
+        <div class="gestionAdmin">
+            <s:form action="gestionarAdmin">
+                <s:submit key="submit_gestionarAdmin" class="logout-button"/>
             </s:form>
         </div>     
     </body>

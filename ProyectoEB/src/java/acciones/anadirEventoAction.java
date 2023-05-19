@@ -11,6 +11,10 @@ import WS.EventoWS;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.validator.annotations.DateRangeFieldValidator;
+import com.opensymphony.xwork2.validator.annotations.RegexFieldValidator;
+import com.opensymphony.xwork2.validator.annotations.RequiredFieldValidator;
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import entidades.Deporte;
 import entidades.Equipo;
 import entidades.Evento;
@@ -28,21 +32,25 @@ import java.util.Date;
  */
 public class anadirEventoAction extends ActionSupport {
 
-    private String nombre, fecha, hora, idDeporte, idEquipoLocal, idEquipoVisitante;
-
+    private String nombre, hora, idDeporte, idEquipoLocal, idEquipoVisitante;
+    private Date fecha;
     public String getNombre() {
         return nombre;
     }
 
+    @RequiredStringValidator(key = "nombre.requerido")
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public String getFecha() {
+    
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    @DateRangeFieldValidator(key="fecha.error", min = "01/05/2024", max = "31/08/2024")
+    @RequiredFieldValidator(key="fecha.requerido")
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
@@ -50,6 +58,8 @@ public class anadirEventoAction extends ActionSupport {
         return hora;
     }
 
+    @RegexFieldValidator(key = "hora.error", regex = "\\d{2}:\\d{2}")
+    @RequiredStringValidator(key="hora.requerido")
     public void setHora(String hora) {
         this.hora = hora;
     }
@@ -81,50 +91,44 @@ public class anadirEventoAction extends ActionSupport {
     public anadirEventoAction() {
     }
 
-       public String execute() throws Exception {
+    public String execute() throws Exception {
         Map<String, Object> session = ActionContext.getContext().getSession();
-        
+
         // Convertir fecha y hora en objetos Date
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        DateFormat timeFormat = new SimpleDateFormat("HH:mm");
-        Date fechaEvento = null;
-        Date horaEvento = null;
-        try {
-            fechaEvento = dateFormat.parse(fecha);
-            horaEvento = timeFormat.parse(hora);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return ERROR;
-        }
+       
         
+
         //buscar deporte    
         DeporteWS deporte = new DeporteWS();
-        GenericType<Deporte> gtDeporte = new GenericType<Deporte>() {};
+        GenericType<Deporte> gtDeporte = new GenericType<Deporte>() {
+        };
         Deporte deporteEncontrado = deporte.find_XML(gtDeporte, idDeporte);
-        
+
         //buscar equipo local (si está seleccionado)
         EquipoWS equipo = new EquipoWS();
-        GenericType<Equipo> gtEquipo = new GenericType<Equipo>() {};
+        GenericType<Equipo> gtEquipo = new GenericType<Equipo>() {
+        };
         Equipo equipoLocal = null;
         if (idEquipoLocal != null && !idEquipoLocal.isEmpty()) {
             equipoLocal = equipo.findById_XML(gtEquipo, idEquipoLocal);
         }
-        
+
         //buscar equipo visitante (si está seleccionado)
         Equipo equipoVisitante = null;
         if (idEquipoVisitante != null && !idEquipoVisitante.isEmpty()) {
             equipoVisitante = equipo.findById_XML(gtEquipo, idEquipoVisitante);
         }
-        
+
         // Crear el evento
         EventoWS evento = new EventoWS();
-        
-           System.out.println("AAAAAAAAAAAA\n" + nombre +" "+this.getFecha()+" " +this.getHora() + " " + this.getIdDeporte()+ " " + this.getIdEquipoLocal()+ " " + this.getIdEquipoVisitante());
-        Evento nuevoEvento = new Evento(nombre, fechaEvento, horaEvento, deporteEncontrado, equipoLocal, equipoVisitante);
+
+        System.out.println("AAAAAAAAAAAA\n" + nombre + " " + this.getFecha() + " " + this.getHora() + " " + this.getIdDeporte() + " " + this.getIdEquipoLocal() + " " + this.getIdEquipoVisitante());
+        Evento nuevoEvento = new Evento(nombre, this.getFecha(), this.getHora(), deporteEncontrado, equipoLocal, equipoVisitante);
         evento.create_XML(nuevoEvento);
-        
+
         // Actualizar la lista de eventos en la sesión
-        GenericType<List<Evento>> gtEventos = new GenericType<List<Evento>>() {};
+        GenericType<List<Evento>> gtEventos = new GenericType<List<Evento>>() {
+        };
         List<Evento> listaEventos = evento.findAll_XML(gtEventos);
         session.put("listaEventos", listaEventos);
         return SUCCESS;

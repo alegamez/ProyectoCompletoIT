@@ -31,13 +31,13 @@
             <s:textfield key="edad_anadirDeportista" name="edad" value="%{#session.deportista.edad}"/>
             <s:radio name="sexo" key="sexo_anadirDeportista" list="{'M', 'F'}" value="%{#session.deportista.sexo}"/>
             <s:select key="equipo_anadirDeportista" name="id_equipo" list="%{#session.listaEquipos}" listValue="nombre" listKey="id" headerKey="" headerValue="Sin equipo"  />
-            <s:select key="deporte_anadirDeportista"  name="id_deporte"  list="%{#session.listaDeportes}" listValue="nombre + ' ' + sexo" listKey="id" headerKey="%{#session.deportista.idEquipo.id}" headerValue="%{#session.deportista.idEquipo.nombre}" />
+            <s:select key="deporte_anadirDeportista"  name="id_deporte"  list="%{#session.listaDeportes}" listValue="nombre + ' ' + sexo" listKey="id" headerKey="%{#session.deportista.idDeporte.id}" headerValue="%{#session.deportista.idDeporte.nombre}" />
             <s:select key="pais_anadirDeportista" name="id_pais" list="%{#session.listaPaises}" listValue="nombre" listKey="id" headerKey="%{#session.deportista.idPais.id}" headerValue="%{#session.deportista.idPais.nombre}"/>
             <s:submit key="submit_actualizarDeportista" />
         </s:form>
     </div>
     <div class="volver-form">
-        <s:form action="adminIndex.jsp">
+        <s:form action="adminDeportistaIndex.jsp">
             <s:submit key="submit_volver" />
         </s:form>
     </div>

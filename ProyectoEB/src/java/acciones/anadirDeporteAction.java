@@ -9,6 +9,7 @@ import WS.DeporteWS;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import entidades.Deporte;
 import entidades.Deportista;
 import java.util.ArrayList;
@@ -21,12 +22,14 @@ import javax.ws.rs.core.GenericType;
  * @author Ale Gamez
  */
 public class anadirDeporteAction extends ActionSupport {
-    private String nombre,sexo,tipo;
+
+    private String nombre, sexo, tipo;
 
     public String getNombre() {
         return nombre;
     }
 
+    @RequiredStringValidator(key = "nombre.requerido")
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -35,6 +38,7 @@ public class anadirDeporteAction extends ActionSupport {
         return sexo;
     }
 
+    @RequiredStringValidator(key = "nombre.requerido")
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
@@ -43,26 +47,27 @@ public class anadirDeporteAction extends ActionSupport {
         return tipo;
     }
 
+    @RequiredStringValidator(key = "tipo.requerido")
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
+
     public anadirDeporteAction() {
     }
-    
+
     public String execute() throws Exception {
-   
+
         DeporteWS cliente = new DeporteWS();
-        Deporte d = new Deporte(this.getNombre(),this.getTipo(),this.getSexo());
+        Deporte d = new Deporte(this.getNombre(), this.getTipo(), this.getSexo());
         cliente.create_XML(d);
-  
-         GenericType<List<Deporte>> genericType = new GenericType<List<Deporte>>(){
+
+        GenericType<List<Deporte>> genericType = new GenericType<List<Deporte>>() {
         };
         List<Deporte> listaDeportes = new ArrayList();
-        listaDeportes = (List<Deporte>)cliente.findAll_XML(genericType);
-        Map <String, Object> session = ActionContext.getContext().getSession();
+        listaDeportes = (List<Deporte>) cliente.findAll_XML(genericType);
+        Map<String, Object> session = ActionContext.getContext().getSession();
         session.put("listaDeportes", listaDeportes);
         return SUCCESS;
     }
-    
+
 }

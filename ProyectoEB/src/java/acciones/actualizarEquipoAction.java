@@ -8,6 +8,7 @@ package acciones;
 import WS.*;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import entidades.*;
 import java.util.List;
 import java.util.Map;
@@ -52,6 +53,7 @@ public class actualizarEquipoAction extends ActionSupport {
         return nombre;
     }
 
+    @RequiredStringValidator(key = "nombre.requerido")
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -60,7 +62,8 @@ public class actualizarEquipoAction extends ActionSupport {
 
     }
 
-    public String actualizarEquipo() {
+
+    public String execute() throws Exception {
         Map<String, Object> session = ActionContext.getContext().getSession();
 
         PaisWS paisws = new PaisWS();
@@ -85,17 +88,6 @@ public class actualizarEquipoAction extends ActionSupport {
         };
         session.put("listaEquipos", equipows.findAll_XML(gtEquipo));
 
-        return SUCCESS;
-    }
-
-    public String execute() throws Exception {
-        EquipoWS equipows = new EquipoWS();
-        GenericType<Equipo> gtEquipo = new GenericType<Equipo>() {
-        };
-
-        Equipo equipo = equipows.findById_XML(gtEquipo, this.getId());
-        Map<String, Object> session = ActionContext.getContext().getSession();
-        session.put("equipo", equipo);
         return SUCCESS;
     }
 

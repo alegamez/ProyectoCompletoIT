@@ -9,6 +9,9 @@ import WS.*;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.validator.annotations.IntRangeFieldValidator;
+import com.opensymphony.xwork2.validator.annotations.RequiredFieldValidator;
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import entidades.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,11 +31,13 @@ public class anadirDeportistaAction extends ActionSupport {
 
     public anadirDeportistaAction() {
     }
-
+    
+    
     public String getNombre() {
         return nombre;
     }
-
+    
+    @RequiredStringValidator(key="nombre.requerido")
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -40,23 +45,28 @@ public class anadirDeportistaAction extends ActionSupport {
     public String getApellido() {
         return apellido;
     }
-
+    @RequiredStringValidator(key="apellido.requerido")
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-
+    
+    
     public String getSexo() {
         return sexo;
     }
+
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
+    
     public int getEdad() {
         return edad;
     }
-
+    
+    @RequiredFieldValidator(key="edad.requerido")
+    @IntRangeFieldValidator(min = "18" , max="65", key="edad.rango")
     public void setEdad(int edad) {
         this.edad = edad;
     }

@@ -12,13 +12,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title><s:text name="tituloAdmin"/></title>
         <link rel="stylesheet" type="text/css" href="css/actualizarDeporte.css">
+        <s:head/>
     </head>
     <body>
         <header>
             <h1><s:text name="tituloGestionarEquipos"/></h1>
         </header>
         <div class="formActualizar">
-            <s:text name="actualizarEquipo"/>
+            <h2><s:text name="actualizarEquipo"/></h2>
 
             <s:form action="actualizarEquipo">
                 <s:textfield key="nombre_anadirEquipo" name="nombre" value="%{#session.equipo.nombre}" />

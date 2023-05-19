@@ -57,5 +57,21 @@ table tr:hover {
 }
 
 
+input[type="submit"] {
+    background-color: #337ab7;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
 
+input[type="submit"]:hover {
+    background-color: #286090;}
+
+.volver-form {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
 

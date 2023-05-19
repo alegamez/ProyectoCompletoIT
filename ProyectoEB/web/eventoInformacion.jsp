@@ -21,7 +21,7 @@
             <h1><s:property value="#session.evento.nombre"/></h1>
         </header>
 
-        <h3><s:text name="fecha_anadirEvento"/>: <s:property value="#session.evento.fecha"/> - <s:text name="hora_anadirEvento"/>: <s:property value="#session.evento.hora.toString()"/></h3>
+        <h3><s:text name="fecha_anadirEvento"/>: <s:property value="#session.evento.fecha"/> - <s:text name="hora_anadirEvento"/>: <s:property value="#session.evento.hora"/></h3>
 
         <s:if test="#session.deportistasEquipo1!=null">
 
@@ -55,7 +55,7 @@
                     </tbody>
                 </table>
             </div>
-            <hr>
+           
             <div class="container-equipo2">
                 <h1><s:property value="#session.equipoVisitante.nombre"/></h1>
                 <h2><s:text name="deportistas"/></h2>

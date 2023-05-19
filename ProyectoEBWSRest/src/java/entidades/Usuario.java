@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Usuario.findById", query = "SELECT u FROM Usuario u WHERE u.id = :id")
     , @NamedQuery(name = "Usuario.findByUsuario", query = "SELECT u FROM Usuario u WHERE u.usuario = :usuario")
     , @NamedQuery(name = "Usuario.findByPassword", query = "SELECT u FROM Usuario u WHERE u.password = :password")
-    , @NamedQuery(name = "Usuario.findByNombre", query = "SELECT u FROM Usuario u WHERE u.nombre = :nombre")})
+    , @NamedQuery(name = "Usuario.findByCorreo", query = "SELECT u FROM Usuario u WHERE u.correo = :correo")})
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,8 +53,8 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
-    @Column(name = "nombre")
-    private String nombre;
+    @Column(name = "correo")
+    private String correo;
 
     public Usuario() {
     }
@@ -63,11 +63,11 @@ public class Usuario implements Serializable {
         this.id = id;
     }
 
-    public Usuario(Integer id, String usuario, String password, String nombre) {
+    public Usuario(Integer id, String usuario, String password, String correo) {
         this.id = id;
         this.usuario = usuario;
         this.password = password;
-        this.nombre = nombre;
+        this.correo = correo;
     }
 
     public Integer getId() {
@@ -94,12 +94,12 @@ public class Usuario implements Serializable {
         this.password = password;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     @Override

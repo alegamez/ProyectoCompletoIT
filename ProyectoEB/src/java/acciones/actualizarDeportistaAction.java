@@ -9,6 +9,9 @@ import WS.*;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.validator.annotations.IntRangeFieldValidator;
+import com.opensymphony.xwork2.validator.annotations.RequiredFieldValidator;
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import entidades.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +32,7 @@ public class actualizarDeportistaAction extends ActionSupport {
         return nombre;
     }
 
+    @RequiredStringValidator(key="nombre.requerido")
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -36,7 +40,7 @@ public class actualizarDeportistaAction extends ActionSupport {
     public String getApellido() {
         return apellido;
     }
-
+    @RequiredStringValidator(key="apellido.requerido")
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
@@ -53,6 +57,9 @@ public class actualizarDeportistaAction extends ActionSupport {
         return edad;
     }
 
+      
+    @RequiredFieldValidator(key="edad.requerido")
+    @IntRangeFieldValidator(min = "18" , max="65", key="edad.rango")
     public void setEdad(int edad) {
         this.edad = edad;
     }
@@ -92,7 +99,9 @@ public class actualizarDeportistaAction extends ActionSupport {
         this.id = id;
     }
 
-    public String actualizarDeportista() {
+    
+    public String execute() throws Exception {
+
         Map<String, Object> session = ActionContext.getContext().getSession();
 
         //buscar pais
@@ -123,7 +132,7 @@ public class actualizarDeportistaAction extends ActionSupport {
             //
 
             Deportista d = new Deportista(this.getNombre(), this.getApellido(), this.getEdad(), this.getSexo(), equipoEncontrado, paisEncontrado, deporteEncontrado);
-             deportista.edit_XML(d, String.valueOf(this.getId()));
+            deportista.edit_XML(d, String.valueOf(this.getId()));
         } else {
 
             Deportista d = new Deportista(this.getNombre(), this.getApellido(), this.getEdad(), this.getSexo(), null, paisEncontrado, deporteEncontrado);
@@ -136,18 +145,6 @@ public class actualizarDeportistaAction extends ActionSupport {
         listaDeportistas = (List<Deportista>) deportista.findAll_XML(genericType);
 
         session.put("listaDeportistas", listaDeportistas);
-        return SUCCESS;
-    }
-
-    public String execute() throws Exception {
-
-        Map<String, Object> session = ActionContext.getContext().getSession();
-        //buscar deportista 
-        DeportistaWS deportista = new DeportistaWS();
-        GenericType<Deportista> gtDeportista = new GenericType<Deportista>() {
-        };
-        Deportista deportistaEncontrado = deportista.find_XML(gtDeportista, String.valueOf(this.getId()));
-        session.put("deportista", deportistaEncontrado);
         return SUCCESS;
     }
 

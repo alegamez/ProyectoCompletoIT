@@ -35,6 +35,7 @@ input[type="submit"] {
     cursor: pointer;
 }
 
+
 input[type="submit"]:hover {
     background-color: #286090;
 }
@@ -47,11 +48,14 @@ input[type="submit"]:hover {
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
 }
+
 
 .container input{
     width: 100%;
     border-radius: 10px;
+    
 }
 
 table td,

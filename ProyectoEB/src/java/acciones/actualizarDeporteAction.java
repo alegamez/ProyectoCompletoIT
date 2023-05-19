@@ -22,7 +22,7 @@ import javax.ws.rs.core.GenericType;
 public class actualizarDeporteAction extends ActionSupport {
 
     private int id;
-    
+    private String nombre, sexo, tipo;
 
     public String getNombre() {
         return nombre;
@@ -47,7 +47,6 @@ public class actualizarDeporteAction extends ActionSupport {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    private String nombre, sexo, tipo;
 
     public int getId() {
         return id;
@@ -60,7 +59,7 @@ public class actualizarDeporteAction extends ActionSupport {
     public actualizarDeporteAction() {
     }
 
-    public String actualizarDeporte() {
+    public String execute() throws Exception {
         DeporteWS cliente = new DeporteWS();
         Deporte d = new Deporte(this.getNombre(), this.getTipo(), this.getSexo());
         cliente.edit_XML(d, String.valueOf(this.getId()));
@@ -71,20 +70,6 @@ public class actualizarDeporteAction extends ActionSupport {
         listaDeportes = (List<Deporte>) cliente.findAll_XML(genericType);
         Map<String, Object> session = ActionContext.getContext().getSession();
         session.put("listaDeportes", listaDeportes);
-        return SUCCESS;
-
-    }
-
-    public String execute() throws Exception {
-        DeporteWS deportews = new DeporteWS();
-        GenericType<Deporte> gTdeporte = new GenericType<Deporte>() {
-        };
-
-        Deporte deporte = deportews.find_XML(gTdeporte, String.valueOf(this.getId()));
-
-        Map<String, Object> session = ActionContext.getContext().getSession();
-
-        session.put("deporte", deporte);
         return SUCCESS;
     }
 

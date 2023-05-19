@@ -9,6 +9,7 @@ import WS.UsuarioWS;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import entidades.Deportista;
 import entidades.Usuario;
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class iniciarSesionAction extends ActionSupport {
     public String getUsuario() {
         return usuario;
     }
-
+@RequiredStringValidator(key="usuario.requerido")
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
@@ -36,6 +37,7 @@ public class iniciarSesionAction extends ActionSupport {
         return password;
     }
 
+   @RequiredStringValidator(key="contrasena.requerido")
     public void setPassword(String password) {
         this.password = password;
     }
@@ -48,11 +50,13 @@ public class iniciarSesionAction extends ActionSupport {
         UsuarioWS cliente = new UsuarioWS();
         GenericType<Usuario> genericType = new GenericType<Usuario>() {
         };
-        if (cliente.login_XML(genericType, this.getUsuario(), this.getPassword()) == null) {
+        
+        Usuario admin = cliente.login_XML(genericType, this.getUsuario(), this.getPassword());
+        if (admin == null) {
             return ERROR;
         } else {
             Map<String, Object> session = ActionContext.getContext().getSession();
-            session.put("administrador", this.getUsuario());
+            session.put("admin", admin);
             return SUCCESS;
         }
 

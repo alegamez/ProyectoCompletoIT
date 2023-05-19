@@ -73,7 +73,7 @@
         </s:if>
 
         <div class="volver-form">
-            <s:form action="adminIndex.jsp">
+            <s:form action="adminEventosIndex.jsp">
                 <s:submit value="Volver" />
             </s:form>
         </div>

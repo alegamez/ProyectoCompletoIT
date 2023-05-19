@@ -54,5 +54,10 @@
                 </tbody>
             </table>
         </div>
+        <div class="volver-form">
+            <s:form action="adminEquipoIndex.jsp">
+                <s:submit key="submit_volver" />
+            </s:form>
+        </div>
     </body>
 </html>

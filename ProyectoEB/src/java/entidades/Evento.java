@@ -56,8 +56,7 @@ public class Evento implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date fecha;
     @Column(name = "hora")
-    @Temporal(TemporalType.TIME)
-    private Date hora;
+    private String hora;
     @JoinTable(name = "evento_deportista", joinColumns = {
         @JoinColumn(name = "id_evento", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "id_deportista", referencedColumnName = "id")})
@@ -106,15 +105,15 @@ public class Evento implements Serializable {
         this.fecha = fecha;
     }
 
-    public Date getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(Date hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 
-    public Evento(String nombre, Date fecha, Date hora, Deporte idDeporte, Equipo idEquipoLocal, Equipo idEquipoVisitante) {
+    public Evento(String nombre, Date fecha, String hora, Deporte idDeporte, Equipo idEquipoLocal, Equipo idEquipoVisitante) {
         this.nombre = nombre;
         this.fecha = fecha;
         this.hora = hora;

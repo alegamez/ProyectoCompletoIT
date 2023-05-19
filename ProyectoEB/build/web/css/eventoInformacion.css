@@ -57,12 +57,12 @@ h1, h2, h3 {
     max-width: 800px;
 }
 
-table {
+.container-equipo2 table, .container-equipo1 table, .container-deportistas table{
     width: 100%;
     border-collapse: collapse;
 }
 
-table th, table td {
+.container-equipo2 table th, table td, .container-equipo1 table th, table td, .container-deportistas table th, table td{
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -74,11 +74,11 @@ header:hover,.container-deportistas:hover,.container-equipo1:hover,
     transition: background-color 0.3s ease;
 }
 
-table th {
+.container-deportistas table th, .container-equipo1 table th, .container-equipo2 table th {
     background-color: #f2f2f2;
 }
 
-table tr:hover {
+.container-deportistas table tr:hover , .container-equipo1 table tr:hover , .container-equipo2 table tr:hover {
     background-color: #f5f5f5;
 }
 
@@ -95,6 +95,7 @@ input[type="submit"]:hover {
     background-color: #286090;}
 
 .volver-form {
-    text-align: center;
-    margin-top: 20px;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
 }

@@ -16,6 +16,7 @@ import WS.DeporteWS;
 import WS.EquipoWS;
 import WS.PaisWS;
 import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import entidades.Pais;
 
 public class anadirEquipoAction extends ActionSupport {
@@ -24,6 +25,7 @@ public class anadirEquipoAction extends ActionSupport {
     private String idDeporte;
     private String idPais;
 
+    @RequiredStringValidator(key="nombre.requerido")
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

@@ -28,7 +28,7 @@
                 <s:textfield key="nombre_anadirDeportista" name="nombre" />
                 <s:textfield key="apellido_anadirDeportista" name="apellido" />
                 <s:textfield key="edad_anadirDeportista" name="edad" />
-                <s:radio name="sexo" key="sexo_anadirDeportista" list="{'M', 'F'}" />
+                <s:radio name="sexo" key="sexo_anadirDeportista" list="{'M', 'F'}" value="'M'" />
                 <s:select  key="equipo_anadirDeportista" name="id_equipo" list="%{#session.listaEquipos}" listValue="nombre" listKey="id" headerKey="" headerValue="Sin equipo" />
                 <s:select  key="deporte_anadirDeportista"  name="id_deporte"  list="%{#session.listaDeportes}" listValue="nombre + ' ' + sexo" listKey="id" />
                 <s:select key="pais_anadirDeportista" name="id_pais" list="%{#session.listaPaises}" listValue="nombre" listKey="id"/>

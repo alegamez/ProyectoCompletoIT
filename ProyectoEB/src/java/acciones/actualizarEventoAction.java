@@ -13,6 +13,10 @@ import static com.opensymphony.xwork2.Action.ERROR;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.validator.annotations.DateRangeFieldValidator;
+import com.opensymphony.xwork2.validator.annotations.RegexFieldValidator;
+import com.opensymphony.xwork2.validator.annotations.RequiredFieldValidator;
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import entidades.Deporte;
 import entidades.Deportista;
 import entidades.Equipo;
@@ -33,8 +37,8 @@ import javax.ws.rs.core.GenericType;
 public class actualizarEventoAction extends ActionSupport {
 
     private int id;
-    private String nombre, fecha, hora, idDeporte, idEquipoLocal, idEquipoVisitante, id_deportista;
-
+    private String nombre, hora, idDeporte, idEquipoLocal, idEquipoVisitante, id_deportista;
+    private Date fecha;
     public String getId_deportista() {
         return id_deportista;
     }
@@ -47,15 +51,20 @@ public class actualizarEventoAction extends ActionSupport {
         return nombre;
     }
 
+
+    @RequiredStringValidator(key = "nombre.requerido")
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public String getFecha() {
+    
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    @DateRangeFieldValidator(key="fecha.error", min = "01/05/2024", max = "31/08/2024")
+    @RequiredFieldValidator(key="fecha.requerido")
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
@@ -63,6 +72,8 @@ public class actualizarEventoAction extends ActionSupport {
         return hora;
     }
 
+    @RegexFieldValidator(key = "hora.error", regex = "\\d{2}:\\d{2}")
+    @RequiredStringValidator(key="hora.requerido")
     public void setHora(String hora) {
         this.hora = hora;
     }
@@ -102,7 +113,7 @@ public class actualizarEventoAction extends ActionSupport {
     public actualizarEventoAction() {
     }
 
-    public String actualizarEvento() {
+    public String execute() throws Exception {
         Map<String, Object> session = ActionContext.getContext().getSession();
         EventoWS eventows = new EventoWS();
         GenericType<Evento> gtEvento = new GenericType<Evento>() {
@@ -111,18 +122,7 @@ public class actualizarEventoAction extends ActionSupport {
 
         session.put("idEvento", eventoActual.getId());
 
-        // Convertir fecha y hora en objetos Date
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        DateFormat timeFormat = new SimpleDateFormat("HH:mm");
-        Date fechaEvento = null;
-        Date horaEvento = null;
-        try {
-            fechaEvento = dateFormat.parse(fecha);
-            horaEvento = timeFormat.parse(hora);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return ERROR;
-        }
+       
         Equipo equipoLocal = null;
         Equipo equipoVisitante = null;
 
@@ -144,7 +144,7 @@ public class actualizarEventoAction extends ActionSupport {
         }
         // Crear el evento
 
-        Evento nuevoEvento = new Evento(this.getNombre(), fechaEvento, horaEvento, eventoActual.getIdDeporte(), equipoLocal, equipoVisitante);
+        Evento nuevoEvento = new Evento(this.getNombre(), this.getFecha(), this.getHora(), eventoActual.getIdDeporte(), equipoLocal, equipoVisitante);
 
         //si hay que añadir deportistas al evento
         if (this.getId_deportista() != null && !this.getId_deportista().equals("")) {
@@ -162,46 +162,10 @@ public class actualizarEventoAction extends ActionSupport {
                 nuevoEvento.getDeportistaCollection().add(deportista);
             }
         }
-        
+
         System.out.println("Nombre: " + nuevoEvento.getNombre() + "\nFecha: " + nuevoEvento.getFecha().toString());
         System.out.println(String.valueOf(this.getId()));
         eventows.edit_XML(nuevoEvento, String.valueOf(this.getId()));
-       
-        return SUCCESS;
-    }
-
-    public String execute() throws Exception {
-        Map<String, Object> session = ActionContext.getContext().getSession();
-
-        EventoWS eventows = new EventoWS();
-        GenericType<Evento> eventogt = new GenericType<Evento>() {
-        };
-        Evento evento = new Evento();
-        if (this.getId() != 0) {
-            evento = eventows.findById(eventogt, String.valueOf(this.getId()));
-        } else {
-            evento = eventows.findById(eventogt, String.valueOf(session.get("idEvento")));
-        }
-        session.put("evento", evento);
-
-        if (evento.getIdDeporte().getTipo().equals("Individual")) {
-            List<Deportista> listaDeportistasEvento = (List<Deportista>) evento.getDeportistaCollection();
-
-            session.put("listaDeportistasEvento", listaDeportistasEvento);
-            DeportistaWS deportistaws = new DeportistaWS();
-            GenericType<List<Deportista>> deportistagt = new GenericType<List<Deportista>>() {
-            };
-
-            List<Deportista> listaDeportistas = deportistaws.findByCriteria_XML(deportistagt, null, null, String.valueOf(evento.getIdDeporte().getId()), null);
-
-            List<Deportista> listaDeportistasDisponibles = new ArrayList<>(listaDeportistas);
-            // hay que ver si está vacía para que no salte la excepción 
-            if (listaDeportistasEvento != null) {
-                listaDeportistasDisponibles.removeAll(listaDeportistasEvento);
-            }
-
-            session.put("listaDeportistasDisponibles", listaDeportistasDisponibles);
-        }
 
         return SUCCESS;
     }

@@ -12,7 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Gestionar Cuentas</title>
+        <title><s:text name="tituloAdmin"/></title>
         <s:head/>
         <link rel="stylesheet" type="text/css" href="css/gestionarCuentas.css">
     </head>
@@ -34,7 +34,7 @@
                 </s:form>
             </div>
         </div>
-        
+
         <div class="container">
 
             <div class="formEliminar">
@@ -45,21 +45,27 @@
                     <s:submit key="submit_eliminarCuenta" />
                 </s:form>
             </div>
+
+
         </div>
+        <p class="link">
+            <s:text name="mensaje_password"/>
+            <a href="recuperarContrasena"><s:text name="aqui"/></a>.
+        </p>
 
         <div class="volver-form">
             <s:form action="adminIndex.jsp">
                 <s:submit key="submit_volver" />
             </s:form>
         </div>
-        
+
         <div class="cerrarSesion">
             <s:form action="cerrarSesion">
                 <s:submit key="submit_cerrarSesion" />
             </s:form>
         </div>
-        
-        
+
+
         <div class="anadirUsuario">
             <s:form action="anadirUsuario">
                 <s:submit key="anadir_usuario" />

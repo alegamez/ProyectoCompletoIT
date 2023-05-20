@@ -7,7 +7,15 @@ package entidades.service;
 
 import entidades.Usuario;
 import java.util.List;
+import java.util.Properties;
 import javax.ejb.Stateless;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -30,6 +38,8 @@ import javax.ws.rs.core.MediaType;
 @Path("entidades.usuario")
 public class UsuarioFacadeREST extends AbstractFacade<Usuario> {
 
+    private final String Username = "juegosolimpicosadm@outlook.com";
+    private final String PassWord = "Trabajoit";
     @PersistenceContext(unitName = "ProyectoEBWSRestPU")
     private EntityManager em;
 
@@ -55,6 +65,12 @@ public class UsuarioFacadeREST extends AbstractFacade<Usuario> {
     @Path("{id}")
     public void remove(@PathParam("id") Integer id) {
         super.remove(super.find(id));
+    }
+
+    @DELETE
+    @Path("{correo}/{password}")
+    public void recupCorreo(@PathParam("correo") String correo, @PathParam("password") String password) {
+        this.construirCorreo(correo, password);
     }
 
     @GET
@@ -109,6 +125,39 @@ public class UsuarioFacadeREST extends AbstractFacade<Usuario> {
             return null;
         }
         return us;
+    }
+
+    private void construirCorreo(String correo, String password) {
+        String mensaje = "Email de recuperación de contraseña"
+                + "\nSu contraseña es: " + password
+                + "\nPor favor, no comparta esta información.";
+        Properties props = new Properties();
+        props.setProperty("mail.smtp.auth", "true");
+        props.setProperty("mail.smtp.starttls.enable", "true");
+        props.setProperty("mail.smtp.host", "smtp.outlook.com");
+        props.setProperty("mail.smtp.port", "587");
+
+        Session session = Session.getInstance(props,
+                new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(Username, PassWord);
+            }
+        });
+
+        try {
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(Username));
+            message.setRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse(correo));
+            message.setSubject("Recuperación de contraseña");
+            message.setText(mensaje);
+
+            Transport.send(message);
+
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

@@ -60,6 +60,10 @@ public class UsuarioWS {
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
     }
 
+    public void recupCorreo(String correo, String password) throws ClientErrorException {
+        webTarget.path(java.text.MessageFormat.format("{0}/{1}", new Object[]{correo, password})).request().delete();
+    }
+
     public <T> T findRange_XML(GenericType<T> responseType, String from, String to) throws ClientErrorException {
         WebTarget resource = webTarget;
         resource = resource.path(java.text.MessageFormat.format("{0}/{1}", new Object[]{from, to}));
@@ -109,5 +113,5 @@ public class UsuarioWS {
     public void close() {
         client.close();
     }
-    
+
 }

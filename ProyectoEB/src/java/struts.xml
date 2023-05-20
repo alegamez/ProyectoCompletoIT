@@ -188,5 +188,11 @@
             <result name="error">/gestionarCuentas.jsp</result>
         </action>
         
+        <action name="recuperarContrasena" class="acciones.recuperarContrasenaAction">
+            <result name="success">/gestionarCuentas.jsp</result>
+            <result name="input">/gestionarCuentas.jsp</result>
+            <result name="error">/gestionarCuentas.jsp</result>
+        </action>
+        
     </package>
 </struts>

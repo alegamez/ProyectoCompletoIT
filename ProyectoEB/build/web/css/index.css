@@ -98,3 +98,7 @@ h1 {
 .iniciarSesion input[type="submit"]:hover {
     background-color: #286090;
 }
+
+.salto {
+    white-space: pre-wrap;
+}

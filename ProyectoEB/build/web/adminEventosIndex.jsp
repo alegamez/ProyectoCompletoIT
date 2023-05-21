@@ -72,7 +72,7 @@
                         </tr>
                     </table>
                     <div class="accionesEvento">
-                        <s:form action="mostrarEvento">
+                        <s:form action="mostrarEventoAdmin">
                             <s:hidden name="id" value="%{#evento.id}" />
                             <s:hidden name="id_equipo_local" value="%{#evento.idEquipoLocal.id}" />
                             <s:hidden name="id_equipo_visitante" value="%{#evento.idEquipoVisitante.id}" />

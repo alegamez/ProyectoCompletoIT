@@ -30,7 +30,8 @@ public class gestionarEquiposAction extends ActionSupport {
         DeporteWS deporteWS = new DeporteWS();
         GenericType<List<Deporte>> deporteListType = new GenericType<List<Deporte>>() {
         };
-        List<Deporte> deportes = deporteWS.findAll_XML(deporteListType);
+        List<Deporte> deportes = deporteWS.findDeportesdeEquipo_XML(deporteListType);
+
         session.put("listaDeportes", deportes);
 
         // Listar países

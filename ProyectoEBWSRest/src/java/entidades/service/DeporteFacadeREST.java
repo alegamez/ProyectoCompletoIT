@@ -9,7 +9,9 @@ import entidades.Deporte;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -60,6 +62,14 @@ public class DeporteFacadeREST extends AbstractFacade<Deporte> {
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Deporte find(@PathParam("id") Integer id) {
         return super.find(id);
+    }
+    
+    @GET
+    @Path("/deportes")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public List<Deporte> findDeportesdeEquipo() {
+        Query q = em.createQuery("SELECT d FROM Deporte d WHERE d.tipo = 'Equipo'");
+        return (List<Deporte>)q.getResultList();
     }
 
     @GET

@@ -28,7 +28,7 @@
                     <td>
                         <s:form action="irDeporte">
                             <s:hidden name="id" value="%{#deporte.id}" />
-                            <s:submit value="%{#deporte.nombre} %{#deporte.sexo}" />
+                            <s:submit value="%{#deporte.nombre} %{#deporte.sexo}" cssClass="salto"/>                   
                         </s:form>
                     </td>
                 </tr>

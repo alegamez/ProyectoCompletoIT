@@ -23,9 +23,11 @@
             <result name="success">/listaDeportistas.jsp</result>
         </action>
         <action name="mostrarEvento" class="acciones.mostrarEventoAction">
-            <result name="success">/eventoInformacionAdmin.jsp</result>
+            <result name="success">/eventoInformacion.jsp</result>
         </action>
-        
+         <action name="mostrarEventoAdmin" class="acciones.mostrarEventoAction">
+            <result name="success">/eventoInformacion.jsp</result>
+        </action>
         
         <!--INICIAR SESION-->
         <action name="iniciarSesion" class="acciones.iniciarSesionAction">

@@ -70,14 +70,14 @@
                         <td><s:property value="#deportista.idEquipo.nombre"/></td>   
                         <td>
                             <s:form action="gestionarDeportista">
-                                <input type="hidden" name="id" value="<s:property value="#deportista.id"/>"/>
-                                <input type="submit" key="submit_gestionar"/>
+                                <s:hidden name="id" value="#deportista.id"/>
+                                <s:submit key="submit_gestionar"/>
                             </s:form>
                         </td>
                         <td>
                             <s:form action="eliminarDeportista">
-                                <input type="hidden" name="id" value="<s:property value="#deportista.id"/>"/>
-                                <input type="submit" key="submit_eliminar"/>
+                                <s:hidden name="id" value="#deportista.id"/>
+                                <s:submit key="submit_eliminar"/>
                             </s:form>
                         </td>
 

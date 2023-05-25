@@ -144,7 +144,7 @@ public class actualizarEventoAction extends ActionSupport {
         }
         // Crear el evento
 
-        Evento nuevoEvento = new Evento(this.getNombre(), this.getFecha(), this.getHora(), eventoActual.getIdDeporte(), equipoLocal, equipoVisitante);
+        Evento nuevoEvento = new Evento(this.getId(),this.getNombre(), this.getFecha(), this.getHora(), eventoActual.getDeportistaCollection(), eventoActual.getIdDeporte(), equipoLocal, equipoVisitante);
 
         //si hay que añadir deportistas al evento
         if (this.getId_deportista() != null && !this.getId_deportista().equals("")) {

@@ -38,7 +38,7 @@ public class anadirDeporteAction extends ActionSupport {
         return sexo;
     }
 
-    @RequiredStringValidator(key = "nombre.requerido")
+    @RequiredStringValidator(key = "sexo.requerido")
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }

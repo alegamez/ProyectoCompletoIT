@@ -81,6 +81,18 @@ public class Deportista implements Serializable {
         this.idDeporte = idDeporte;
     }
 
+    public Deportista(Integer id, String nombre, String apellido, Integer edad, String sexo, Equipo idEquipo, Pais idPais, Deporte idDeporte) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.sexo = sexo;
+        this.idEquipo = idEquipo;
+        this.idPais = idPais;
+        this.idDeporte = idDeporte;
+    }
+
+    
     public Deportista(Integer id) {
         this.id = id;
     }

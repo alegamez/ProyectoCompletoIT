@@ -37,7 +37,7 @@ public class iniciarSesionAction extends ActionSupport {
         return password;
     }
 
-   @RequiredStringValidator(key="contrasena.requerido")
+   @RequiredStringValidator(key="password.requerido")
     public void setPassword(String password) {
         this.password = password;
     }

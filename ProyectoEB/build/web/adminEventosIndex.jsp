@@ -50,12 +50,12 @@
 
             <s:iterator value="#session.listaEventos" var="evento">
                 <div class="tablasEvento">
-                    <h2><s:property value="#evento.nombre"/></h2>
+                    <h2><s:property value="#evento.nombre"/> <s:property value="#evento.idDeporte.sexo"/></h2>
                     <table>
                         <tr>
                             <th><s:text name="fecha_anadirEvento"/></th>
                             <th><s:text name="hora_anadirEvento"/></th>
-                            <th><s:text name="nombre_anadirEvento"/></th>
+                            <th><s:text name="deporte_anadirEvento"/></th>
                                 <s:if test="%{#evento.idEquipoLocal != null}">
                                 <th><s:text name="equipoLocal"/></th>
                                 <th><s:text name="equipoVisitante"/></th>

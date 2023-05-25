@@ -79,6 +79,16 @@ public class Deporte implements Serializable {
         this.tipo = tipo;
         this.sexo = sexo;
     }
+
+    public Deporte(Collection<Equipo> equipoCollection, Integer id, String nombre, String tipo, String sexo, Collection<Evento> eventoCollection, Collection<Deportista> deportistaCollection) {
+        this.equipoCollection = equipoCollection;
+        this.id = id;
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.sexo = sexo;
+        this.eventoCollection = eventoCollection;
+        this.deportistaCollection = deportistaCollection;
+    }
     
 
     public Integer getId() {

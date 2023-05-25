@@ -26,7 +26,7 @@
             <result name="success">/eventoInformacion.jsp</result>
         </action>
          <action name="mostrarEventoAdmin" class="acciones.mostrarEventoAction">
-            <result name="success">/eventoInformacion.jsp</result>
+            <result name="success">/eventoInformacionAdmin.jsp</result>
         </action>
         
         <!--INICIAR SESION-->

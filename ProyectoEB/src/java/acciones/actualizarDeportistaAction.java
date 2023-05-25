@@ -131,11 +131,11 @@ public class actualizarDeportistaAction extends ActionSupport {
             equipoEncontrado = equipo.findById_XML(gtEquipo, this.getId_equipo());
             //
 
-            Deportista d = new Deportista(this.getNombre(), this.getApellido(), this.getEdad(), this.getSexo(), equipoEncontrado, paisEncontrado, deporteEncontrado);
+            Deportista d = new Deportista(this.getId(),this.getNombre(), this.getApellido(), this.getEdad(), this.getSexo(), equipoEncontrado, paisEncontrado, deporteEncontrado);
             deportista.edit_XML(d, String.valueOf(this.getId()));
         } else {
 
-            Deportista d = new Deportista(this.getNombre(), this.getApellido(), this.getEdad(), this.getSexo(), null, paisEncontrado, deporteEncontrado);
+            Deportista d = new Deportista(this.getId(),this.getNombre(), this.getApellido(), this.getEdad(), this.getSexo(), null, paisEncontrado, deporteEncontrado);
             deportista.edit_XML(d, String.valueOf(this.getId()));
         }
 

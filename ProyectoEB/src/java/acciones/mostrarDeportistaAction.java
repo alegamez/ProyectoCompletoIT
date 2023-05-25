@@ -33,14 +33,16 @@ public class mostrarDeportistaAction extends ActionSupport {
     }
 
     public String execute() throws Exception {
-
+      
         Map<String, Object> session = ActionContext.getContext().getSession();
         //buscar deportista 
         DeportistaWS deportista = new DeportistaWS();
         GenericType<Deportista> gtDeportista = new GenericType<Deportista>() {
         };
+
         Deportista deportistaEncontrado = deportista.find_XML(gtDeportista, String.valueOf(this.getId()));
         session.put("deportista", deportistaEncontrado);
+
         return SUCCESS;
     }
 

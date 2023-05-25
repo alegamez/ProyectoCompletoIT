@@ -26,7 +26,7 @@
         <div class="formActualizar">
             <h2><s:text name="actualizarDeporte"/></h2>
         <s:form action="actualizarDeporte">
-            <s:hidden name="id" value="%{#deporte.id}" />
+            <s:hidden name="id" value="%{#session.deporte.id}" />
             <s:textfield key="nombre_añadirDeporte" name="nombre" value="%{#session.deporte.nombre}"  />
             <s:radio name="sexo" key="categoria_añadirDeporte" list="{'Masculino', 'Femenino'}" value="%{#session.deporte.sexo}" />
             <s:radio name="tipo" key="tipo_añadirDeporte" list="{'Individual', 'Equipo'}" value="%{#session.deporte.tipo}" />

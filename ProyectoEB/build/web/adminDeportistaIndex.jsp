@@ -70,13 +70,13 @@
                         <td><s:property value="#deportista.idEquipo.nombre"/></td>   
                         <td>
                             <s:form action="gestionarDeportista">
-                                <s:hidden name="id" value="#deportista.id"/>
+                                <s:hidden name="id" value="%{#deportista.id}"/>
                                 <s:submit key="submit_gestionar"/>
                             </s:form>
                         </td>
                         <td>
                             <s:form action="eliminarDeportista">
-                                <s:hidden name="id" value="#deportista.id"/>
+                                <s:hidden name="id" value="%{#deportista.id}"/>
                                 <s:submit key="submit_eliminar"/>
                             </s:form>
                         </td>

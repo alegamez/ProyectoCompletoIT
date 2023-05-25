@@ -25,6 +25,7 @@
 
     <div class="formActualizar">
         <s:form action="actualizarDeportista">
+            <s:hidden name="id" value="%{#session.deportista.id}"/>
             <h2><s:text name="actualizarDeportista"/></h2>
             <s:textfield key="nombre_anadirDeportista" name="nombre" value="%{#session.deportista.nombre}"/>
             <s:textfield key="apellido_anadirDeportista" name="apellido" value="%{#session.deportista.apellido}" />

@@ -50,6 +50,7 @@
                         </tr>
                     </table>
                     <div class="accionesEquipo">
+
                         <s:form action="mostrarEquipo">
                             <s:hidden name="id" value="%{#equipo.id}" />
                             <s:submit key="submit_detalles" />

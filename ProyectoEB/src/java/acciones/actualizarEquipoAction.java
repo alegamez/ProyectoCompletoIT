@@ -76,7 +76,7 @@ public class actualizarEquipoAction extends ActionSupport {
         };
         Deporte deporte = deportews.find_XML(gtDeporte, this.getIdDeporte());
 
-        Equipo e = new Equipo(this.getNombre(), pais, deporte);
+        Equipo e = new Equipo(Integer.valueOf(this.getId()), this.getNombre(), pais, deporte);
         System.out.println("Nombre: " + e.getNombre() + "\nPais: " + e.getIdPais().getNombre() + "\nDeporte: " + e.getIdDeporte().getNombre());
 
         EquipoWS equipows = new EquipoWS();

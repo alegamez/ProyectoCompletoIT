@@ -122,7 +122,6 @@ public class anadirEventoAction extends ActionSupport {
         // Crear el evento
         EventoWS evento = new EventoWS();
 
-        System.out.println("AAAAAAAAAAAA\n" + nombre + " " + this.getFecha() + " " + this.getHora() + " " + this.getIdDeporte() + " " + this.getIdEquipoLocal() + " " + this.getIdEquipoVisitante());
         Evento nuevoEvento = new Evento(nombre, this.getFecha(), this.getHora(), deporteEncontrado, equipoLocal, equipoVisitante);
         evento.create_XML(nuevoEvento);
 

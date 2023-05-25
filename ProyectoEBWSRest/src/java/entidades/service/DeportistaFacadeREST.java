@@ -103,7 +103,7 @@ public class DeportistaFacadeREST extends AbstractFacade<Deportista> {
         return em;
     }
 
-    public List<Deportista> findByCriteriaC(String id_equipo, String id_pais, String id_deporte, String sexo) {
+    private List<Deportista> findByCriteriaC(String id_equipo, String id_pais, String id_deporte, String sexo) {
         
         String consulta = "SELECT e FROM Deportista e WHERE 1=1";
 

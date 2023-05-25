@@ -113,6 +113,27 @@ public class Evento implements Serializable {
         this.hora = hora;
     }
 
+    public Evento(Integer id, String nombre, Date fecha, String hora, Deporte idDeporte, Equipo idEquipoLocal, Equipo idEquipoVisitante) {
+        this.id = id;
+        this.nombre = nombre;
+        this.fecha = fecha;
+        this.hora = hora;
+        this.idDeporte = idDeporte;
+        this.idEquipoLocal = idEquipoLocal;
+        this.idEquipoVisitante = idEquipoVisitante;
+    }
+
+    public Evento(Integer id, String nombre, Date fecha, String hora, Collection<Deportista> deportistaCollection, Deporte idDeporte, Equipo idEquipoLocal, Equipo idEquipoVisitante) {
+        this.id = id;
+        this.nombre = nombre;
+        this.fecha = fecha;
+        this.hora = hora;
+        this.deportistaCollection = deportistaCollection;
+        this.idDeporte = idDeporte;
+        this.idEquipoLocal = idEquipoLocal;
+        this.idEquipoVisitante = idEquipoVisitante;
+    }
+
     public Evento(String nombre, Date fecha, String hora, Deporte idDeporte, Equipo idEquipoLocal, Equipo idEquipoVisitante) {
         this.nombre = nombre;
         this.fecha = fecha;

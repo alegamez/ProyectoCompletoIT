@@ -22,6 +22,7 @@ public class gestionarCuentaAction extends ActionSupport {
     public gestionarCuentaAction() {
     }
 
+    //obtenemos la lista de usuarios administradores de la aplicación
     public String execute() throws Exception {
         UsuarioWS usuariows = new UsuarioWS();
         GenericType<List<Usuario>> usuariogt = new GenericType<List<Usuario>>() {

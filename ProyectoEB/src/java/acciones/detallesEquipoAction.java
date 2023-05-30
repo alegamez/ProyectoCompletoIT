@@ -35,6 +35,7 @@ public class detallesEquipoAction extends ActionSupport {
     public detallesEquipoAction() {
     }
 
+    //se listan los deportistas de un equipo
     public String execute() throws Exception {
         Map<String, Object> session = ActionContext.getContext().getSession();
 

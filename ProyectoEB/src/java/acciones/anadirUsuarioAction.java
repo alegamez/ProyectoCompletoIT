@@ -24,6 +24,7 @@ import javax.ws.rs.core.GenericType;
  */
 public class anadirUsuarioAction extends ActionSupport {
 
+    //atributos necesarios para un usuario
     private String usuario, password, correo;
 
     public String getUsuario() {
@@ -61,6 +62,8 @@ public class anadirUsuarioAction extends ActionSupport {
     }
 
     public String execute() throws Exception {
+        //creamos un nuevo usuario y lo añadimos a la base de datos, luego actualizamos la lista para que se vea reflejada la
+        //actualización en la página
         UsuarioWS cliente = new UsuarioWS();
 
         Map<String, Object> session = ActionContext.getContext().getSession();

@@ -61,6 +61,8 @@ public class mostrarEventoAction extends ActionSupport {
         this.id_deporte = id_deporte;
     }
 
+    //obtenemos un evento y sus equipos o deportistas en cada caso
+
     public String execute() throws Exception {
         Map<String, Object> session = ActionContext.getContext().getSession();
         EventoWS evws = new EventoWS();
@@ -69,7 +71,8 @@ public class mostrarEventoAction extends ActionSupport {
         Evento e1 = new Evento();
         e1 = (Evento) evws.findById(gT, String.valueOf(this.getId()));
         session.put("evento", e1);
-
+        
+        //si tiene equipos, los obtenemos
         if (this.getId_equipo_local() != 0) {
             EquipoWS equipo = new EquipoWS();
             GenericType<Equipo> genericType = new GenericType<Equipo>() {
@@ -96,6 +99,7 @@ public class mostrarEventoAction extends ActionSupport {
             session.put("deportistasEquipo2", d2);
 
         } else {
+            //si no los tiene, cargamos directamente los deportistas asociados
             Collection<Deportista> deportistas = e1.getDeportistaCollection();
 
             if (deportistas != null && !deportistas.isEmpty()) {

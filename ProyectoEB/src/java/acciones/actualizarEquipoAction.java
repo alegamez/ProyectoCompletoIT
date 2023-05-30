@@ -20,6 +20,7 @@ import javax.ws.rs.core.GenericType;
  */
 public class actualizarEquipoAction extends ActionSupport {
 
+    //atributos que necesitaremos para el execute
     private String id;
     private String idPais;
     private String idDeporte;
@@ -62,7 +63,7 @@ public class actualizarEquipoAction extends ActionSupport {
 
     }
 
-
+    //actualizaremos el equipo, creando un nuevo equipo con los datos actualizados y llamando al servicio web
     public String execute() throws Exception {
         Map<String, Object> session = ActionContext.getContext().getSession();
 

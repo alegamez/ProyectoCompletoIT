@@ -30,10 +30,10 @@ public class eliminarDeporteAction extends ActionSupport {
     public void setId(int id) {
         this.id = id;
     }
-
+    
     public eliminarDeporteAction() {
     }
-
+    //eliminamos el deporte de la base de datos, y posteriormente actualizamos la variable que contiene esta lista
     public String execute() throws Exception {
         DeporteWS cliente = new DeporteWS();
         cliente.remove(String.valueOf(this.getId()));

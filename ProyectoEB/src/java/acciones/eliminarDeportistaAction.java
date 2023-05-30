@@ -32,7 +32,7 @@ public class eliminarDeportistaAction extends ActionSupport {
     
     public eliminarDeportistaAction() {
     }
-    
+    //eliminamos el deportista de la base de datos, y posteriormente actualizamos la variable que contiene esta lista
     public String execute() throws Exception {
         DeportistaWS cliente = new DeportistaWS();
         cliente.remove(String.valueOf(this.getId()));

@@ -48,10 +48,7 @@
 
 
         </div>
-        <p class="link">
-            <s:text name="mensaje_password"/>
-            <a href="recuperarContrasena"><s:text name="aqui"/></a>.
-        </p>
+       
 
         <div class="volver-form">
             <s:form action="adminIndex.jsp">

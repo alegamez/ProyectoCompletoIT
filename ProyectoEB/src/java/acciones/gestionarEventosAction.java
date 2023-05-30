@@ -39,7 +39,7 @@ public class gestionarEventosAction extends ActionSupport {
 
     public gestionarEventosAction() {
     }
-
+//obtenemos la lista de los eventos almacenados en la aplicación
     public String execute() throws Exception {
 
         Map<String, Object> session = ActionContext.getContext().getSession();

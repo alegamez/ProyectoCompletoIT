@@ -36,9 +36,11 @@ import javax.ws.rs.core.GenericType;
  */
 public class actualizarEventoAction extends ActionSupport {
 
+    //atributos que necesitaremos para el execute
     private int id;
     private String nombre, hora, idDeporte, idEquipoLocal, idEquipoVisitante, id_deportista;
     private Date fecha;
+
     public String getId_deportista() {
         return id_deportista;
     }
@@ -51,19 +53,17 @@ public class actualizarEventoAction extends ActionSupport {
         return nombre;
     }
 
-
     @RequiredStringValidator(key = "nombre.requerido")
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    
     public Date getFecha() {
         return fecha;
     }
 
-    @DateRangeFieldValidator(key="fecha.error", min = "01/05/2024", max = "31/08/2024")
-    @RequiredFieldValidator(key="fecha.requerido")
+    @DateRangeFieldValidator(key = "fecha.error", min = "01/05/2024", max = "31/08/2024")
+    @RequiredFieldValidator(key = "fecha.requerido")
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
@@ -73,7 +73,7 @@ public class actualizarEventoAction extends ActionSupport {
     }
 
     @RegexFieldValidator(key = "hora.error", regex = "\\d{2}:\\d{2}")
-    @RequiredStringValidator(key="hora.requerido")
+    @RequiredStringValidator(key = "hora.requerido")
     public void setHora(String hora) {
         this.hora = hora;
     }
@@ -122,7 +122,6 @@ public class actualizarEventoAction extends ActionSupport {
 
         session.put("idEvento", eventoActual.getId());
 
-       
         Equipo equipoLocal = null;
         Equipo equipoVisitante = null;
 
@@ -144,7 +143,7 @@ public class actualizarEventoAction extends ActionSupport {
         }
         // Crear el evento
 
-        Evento nuevoEvento = new Evento(this.getId(),this.getNombre(), this.getFecha(), this.getHora(), eventoActual.getDeportistaCollection(), eventoActual.getIdDeporte(), equipoLocal, equipoVisitante);
+        Evento nuevoEvento = new Evento(this.getId(), this.getNombre(), this.getFecha(), this.getHora(), eventoActual.getDeportistaCollection(), eventoActual.getIdDeporte(), equipoLocal, equipoVisitante);
 
         //si hay que añadir deportistas al evento
         if (this.getId_deportista() != null && !this.getId_deportista().equals("")) {

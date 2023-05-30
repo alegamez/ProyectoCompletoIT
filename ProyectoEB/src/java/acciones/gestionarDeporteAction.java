@@ -36,6 +36,7 @@ public class gestionarDeporteAction extends ActionSupport {
     public gestionarDeporteAction() {
     }
     
+    //obtenemos la lista de los deportes almacenados en la aplicación
     public String execute() throws Exception {
         
         DeporteWS cliente = new DeporteWS();

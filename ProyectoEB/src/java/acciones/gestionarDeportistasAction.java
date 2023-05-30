@@ -30,6 +30,7 @@ public class gestionarDeportistasAction extends ActionSupport {
     public gestionarDeportistasAction() {
     }
     
+    //obtenemos la lista de los deportes almacenados en la aplicación
     public String execute() throws Exception {
         Map <String, Object> session = ActionContext.getContext().getSession();
         

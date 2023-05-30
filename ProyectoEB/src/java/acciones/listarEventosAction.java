@@ -29,7 +29,7 @@ public class listarEventosAction extends ActionSupport {
     
     public listarEventosAction() {
     }
-    
+    //obtenemos todos los eventos
     public String execute() throws Exception {
         EventoWS evento = new EventoWS();
         GenericType<List<Evento>> genericType = new GenericType<List<Evento>>(){

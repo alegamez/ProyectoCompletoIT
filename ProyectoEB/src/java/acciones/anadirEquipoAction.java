@@ -21,6 +21,7 @@ import entidades.Pais;
 
 public class anadirEquipoAction extends ActionSupport {
 
+    //atributos que necesitaremos para el execute
     private String nombre;
     private String idDeporte;
     private String idPais;
@@ -53,6 +54,8 @@ public class anadirEquipoAction extends ActionSupport {
     @Override
     public String execute() throws Exception {
 
+        //creamos un nuevo equipo y lo añadimos a la base de datos, luego actualizamos la lista para que se vea reflejada la
+        //actualización en la página
         Map<String, Object> session = ActionContext.getContext().getSession();
 
         //buscar deporte    

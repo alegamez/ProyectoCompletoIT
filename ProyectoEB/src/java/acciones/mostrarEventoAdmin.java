@@ -34,6 +34,9 @@ public class mostrarEventoAdmin extends ActionSupport {
     public mostrarEventoAdmin() {
     }
     
+  
+    //obtendremos un evento en específico. Además habrá que obtener la lista de deportistas disponibles para ese evento en 
+    //caso de que sea de tipo individual
      public String execute() throws Exception {
         Map<String, Object> session = ActionContext.getContext().getSession();
 

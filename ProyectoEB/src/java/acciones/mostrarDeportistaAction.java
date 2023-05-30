@@ -31,7 +31,7 @@ public class mostrarDeportistaAction extends ActionSupport {
 
     public mostrarDeportistaAction() {
     }
-
+//obtenemos un deportista en específico
     public String execute() throws Exception {
       
         Map<String, Object> session = ActionContext.getContext().getSession();

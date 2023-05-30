@@ -27,7 +27,7 @@ public class eliminarUsuarioAction extends ActionSupport {
     }
     public eliminarUsuarioAction() {
     }
-    
+    //eliminamos el usuario de la base de datos, y posteriormente actualizamos la variable que contiene esta lista
     public String execute() throws Exception {
          Map <String, Object> session = ActionContext.getContext().getSession();
         Usuario usuarioEliminar = (Usuario) session.get("admin");

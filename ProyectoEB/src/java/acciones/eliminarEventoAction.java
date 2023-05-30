@@ -31,7 +31,7 @@ public class eliminarEventoAction extends ActionSupport {
     }
     public eliminarEventoAction() {
     }
-    
+    //eliminamos el evento de la base de datos, y posteriormente actualizamos la variable que contiene esta lista
     public String execute() throws Exception {
        EventoWS cliente = new EventoWS();
         cliente.remove(String.valueOf(this.getId()));

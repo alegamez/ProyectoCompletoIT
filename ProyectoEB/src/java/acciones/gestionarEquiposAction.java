@@ -22,7 +22,7 @@ public class gestionarEquiposAction extends ActionSupport {
 
     public gestionarEquiposAction() {
     }
-
+//obtenemos la lista de los equipos almacenados en la aplicación
     public String execute() throws Exception {
         Map<String, Object> session = ActionContext.getContext().getSession();
 

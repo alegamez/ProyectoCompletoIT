@@ -23,6 +23,8 @@ import javax.ws.rs.core.GenericType;
  */
 public class anadirDeporteAction extends ActionSupport {
 
+    
+    //atributos que nos sirven para el execute
     private String nombre, sexo, tipo;
 
     public String getNombre() {
@@ -56,7 +58,8 @@ public class anadirDeporteAction extends ActionSupport {
     }
 
     public String execute() throws Exception {
-
+        //creamos un nuevo deporte y lo añadimos a la base de datos, luego actualizamos la lista para que se vea reflejada la
+        //actualización en la página
         DeporteWS cliente = new DeporteWS();
         Deporte d = new Deporte(this.getNombre(), this.getTipo(), this.getSexo());
         cliente.create_XML(d);

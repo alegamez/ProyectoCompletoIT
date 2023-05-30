@@ -23,6 +23,8 @@ import javax.ws.rs.core.GenericType;
  * @author Ale Gamez
  */
 public class actualizarDeportistaAction extends ActionSupport {
+  
+    //atributos que necesitaremos para el execute
 
     private int id;
     private String nombre, apellido, sexo, id_deporte, id_pais, id_equipo;
@@ -99,7 +101,8 @@ public class actualizarDeportistaAction extends ActionSupport {
         this.id = id;
     }
 
-    
+    //actualizaremos el deportista, creando un nuevo deportista con los datos actualizados y llamando al servicio web
+
     public String execute() throws Exception {
 
         Map<String, Object> session = ActionContext.getContext().getSession();

@@ -71,7 +71,7 @@ public class filtrarDeportistasAction extends ActionSupport {
         String idDeporte = (this.getId_deporte() != null && !this.getId_deporte().isEmpty()) ? this.getId_deporte() : null;
         String sexo = (this.getSexo() != null && !this.getSexo().isEmpty()) ? this.getSexo() : null;
 
-        // Llama al método findByCriteria_XML con los parámetros
+        // Llama al método findByCriteria_XML con los parámetros, este método construirá una consulta sql para obtener los deportistas filtrados
         data = (List<Deportista>) cliente.findByCriteria_XML(genericType, idEquipo, idPais, idDeporte, sexo);
 
         Map<String, Object> session = ActionContext.getContext().getSession();

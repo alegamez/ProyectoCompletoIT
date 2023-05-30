@@ -32,6 +32,7 @@ import java.util.Date;
  */
 public class anadirEventoAction extends ActionSupport {
 
+    //atributos que necesitaremos en el execute
     private String nombre, hora, idDeporte, idEquipoLocal, idEquipoVisitante;
     private Date fecha;
     public String getNombre() {
@@ -92,11 +93,11 @@ public class anadirEventoAction extends ActionSupport {
     }
 
     public String execute() throws Exception {
+        //creamos un nuevo evento y lo añadimos a la base de datos, luego actualizamos la lista para que se vea reflejada la
+        //actualización en la página
+
         Map<String, Object> session = ActionContext.getContext().getSession();
 
-        // Convertir fecha y hora en objetos Date
-       
-        
 
         //buscar deporte    
         DeporteWS deporte = new DeporteWS();

@@ -191,9 +191,9 @@
         </action>
         
         <action name="recuperarContrasena" class="acciones.recuperarContrasenaAction">
-            <result name="success">/gestionarCuentas.jsp</result>
-            <result name="input">/gestionarCuentas.jsp</result>
-            <result name="error">/gestionarCuentas.jsp</result>
+            <result name="success">/index.jsp</result>
+            <result name="input">/index.jsp</result>
+            <result name="error">/index.jsp</result>
         </action>
         
     </package>

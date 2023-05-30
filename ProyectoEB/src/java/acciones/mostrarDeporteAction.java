@@ -34,6 +34,7 @@ public class mostrarDeporteAction extends ActionSupport {
     public mostrarDeporteAction() {
     }
 
+    //obtenemos un deporte en específico
     public String execute() throws Exception {
 
         DeporteWS deportews = new DeporteWS();

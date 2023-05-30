@@ -25,6 +25,9 @@ import javax.ws.rs.core.GenericType;
  */
 public class actualizarDeporteAction extends ActionSupport {
 
+    
+    //atributos que necesitaremos para el execute
+
     private int id;
     private String nombre, sexo, tipo;
 
@@ -64,6 +67,7 @@ public class actualizarDeporteAction extends ActionSupport {
     }
 
     public String execute() throws Exception {
+        //actualizaremos el deporte, creando un nuevo deporte con los datos actualizados y llamando al servicio web
         DeporteWS cliente = new DeporteWS();
         GenericType<Deporte> gt = new GenericType<Deporte>() {
         };
@@ -90,11 +94,7 @@ public class actualizarDeporteAction extends ActionSupport {
                 eventos,
                 deportistas
         );
-        System.out.println(
-                this.getId()
-                + this.getNombre()
-                + this.getSexo()
-                + this.getTipo());
+       
         cliente.edit_XML(d, String.valueOf(this.getId()));
 
         GenericType<List<Deporte>> genericType = new GenericType<List<Deporte>>() {

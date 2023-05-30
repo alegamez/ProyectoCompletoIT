@@ -17,7 +17,7 @@ public class cerrarSesionAction extends ActionSupport {
     
     public cerrarSesionAction() {
     }
-    
+    //limpiamos la sesión y posteriormente se llamará de nuevo a carga inicial
     public String execute() throws Exception {
         Map <String, Object> session = ActionContext.getContext().getSession();
         session.clear();

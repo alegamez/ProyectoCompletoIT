@@ -22,6 +22,7 @@ import javax.ws.rs.core.GenericType;
  * @author Ale Gamez
  */
 public class actualizarUsuarioAction extends ActionSupport {
+    //atributos que necesitaremos para el execute
 
     private String usuario, password, correo;
 
@@ -58,7 +59,7 @@ public class actualizarUsuarioAction extends ActionSupport {
 
     public actualizarUsuarioAction() {
     }
-
+    //actualizamos el usuario con la nueva información
     public String execute() throws Exception {
         UsuarioWS cliente = new UsuarioWS();
 

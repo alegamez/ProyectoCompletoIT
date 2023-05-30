@@ -46,6 +46,7 @@ public class iniciarSesionAction extends ActionSupport {
     public iniciarSesionAction() {
     }
 
+    //verificamos si existe el usuario. Si no fuera así, actualizamos la variable correspondiente a false para mostrar el error
     public String execute() throws Exception {
         UsuarioWS cliente = new UsuarioWS();
         GenericType<Usuario> genericType = new GenericType<Usuario>() {
@@ -53,10 +54,13 @@ public class iniciarSesionAction extends ActionSupport {
         
         Usuario admin = cliente.login_XML(genericType, this.getUsuario(), this.getPassword());
         if (admin == null) {
+            Map<String, Object> session = ActionContext.getContext().getSession();
+            session.put("usuarioCorrecto", false);
             return ERROR;
         } else {
             Map<String, Object> session = ActionContext.getContext().getSession();
             session.put("admin", admin);
+            session.put("usuarioCorrecto", true);  
             return SUCCESS;
         }
 

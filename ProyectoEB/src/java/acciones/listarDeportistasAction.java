@@ -23,7 +23,7 @@ public class listarDeportistasAction extends ActionSupport {
     
     public listarDeportistasAction() {
     }
-    
+    //obtenemos todos los deportistas
     public String execute() throws Exception {
         DeportistaWS cliente = new DeportistaWS();
         GenericType<List<Deportista>> genericType = new GenericType<List<Deportista>>(){

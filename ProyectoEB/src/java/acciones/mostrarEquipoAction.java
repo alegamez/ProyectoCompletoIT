@@ -30,6 +30,8 @@ public class mostrarEquipoAction extends ActionSupport {
     public mostrarEquipoAction() {
     }
     
+    //obtenemos un equipo en específico
+
     public String execute() throws Exception {
         EquipoWS equipows = new EquipoWS();
         GenericType<Equipo> gtEquipo = new GenericType<Equipo>() {

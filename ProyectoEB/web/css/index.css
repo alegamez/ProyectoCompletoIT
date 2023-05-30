@@ -39,7 +39,13 @@ h1 {
 
 }
 
-
+.link{
+    
+    font-style: italic;
+        text-align: center;
+        font-size: 12px;
+       
+}
 
 .iniciarSesion {
     margin-top: 20px;

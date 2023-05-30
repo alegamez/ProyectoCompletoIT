@@ -34,18 +34,28 @@
                 </tr>
             </div>
         </s:iterator>
-
+        
         <div class="iniciarSesion">
+           
             <s:form action="iniciarSesion">
                 <div class="texto">
                     <s:text  name="preg_login"  />
                 </div>
+                 <s:if test="#session.usuarioCorrecto==false">
+                <s:text name="usuarioCorrecto" />
+                
+            </s:if>
                 <s:textfield key="usuario"/>
                 <s:password key="password"/>
                 <s:submit key="submit_login"/>
 
             </s:form>
+            <p class="link">
+            <a href="recuperarContrasena.jsp"><s:text name="contrasena_olvidada"/></a>.
+        </p>
         </div>
+        
+       
 
     </body>
 </html>

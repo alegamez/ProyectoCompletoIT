@@ -79,6 +79,19 @@ public class UsuarioFacadeREST extends AbstractFacade<Usuario> {
     public Usuario find(@PathParam("id") Integer id) {
         return super.find(id);
     }
+    
+    @GET
+@Path("recuperar/{correo}")
+@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+public Usuario findByCorreo(@PathParam("correo") String correo) {
+    Query q = em.createQuery("SELECT u FROM Usuario u WHERE u.correo = :correo");
+    q.setParameter("correo", correo);
+    try {
+        return (Usuario) q.getSingleResult();
+    } catch (NoResultException e) {
+        return null;
+    }
+}
 
     @GET
     @Path("usuario/{usuario}/{password}")
@@ -129,8 +142,8 @@ public class UsuarioFacadeREST extends AbstractFacade<Usuario> {
 
     private void construirCorreo(String correo, String password) {
         String mensaje = "Email de recuperación de contraseña"
-                + "\nSu contraseña es: " + password
-                + "\nPor favor, no comparta esta información.";
+                + "\n\n " + password
+                + "\n\n Por favor, no comparta esta información.";
         Properties props = new Properties();
         props.setProperty("mail.smtp.auth", "true");
         props.setProperty("mail.smtp.starttls.enable", "true");

@@ -24,7 +24,7 @@ public class cargaInicialAction extends ActionSupport {
     
     public cargaInicialAction() {
     }
-    
+    //cargamos todos los deportes almacenados en la base de datos
     public String execute() throws Exception {
         DeporteWS cliente = new DeporteWS();
         GenericType<List<Deporte>> genericType = new GenericType<List<Deporte>>(){

@@ -32,7 +32,7 @@ public class eliminarEquipoAction extends ActionSupport {
  
     public eliminarEquipoAction() {
     }
-    
+    //eliminamos el equipo de la base de datos, y posteriormente actualizamos la variable que contiene esta lista
     public String execute() throws Exception {
     EquipoWS cliente = new EquipoWS();
     cliente.remove(String.valueOf(this.getId()));

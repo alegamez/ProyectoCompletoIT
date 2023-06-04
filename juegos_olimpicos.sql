@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-05-2023 a las 19:15:34
+-- Tiempo de generación: 04-06-2023 a las 12:53:32
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `juegos_olimpicos`
 --
+CREATE DATABASE IF NOT EXISTS `juegos_olimpicos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `juegos_olimpicos`;
 
 -- --------------------------------------------------------
 

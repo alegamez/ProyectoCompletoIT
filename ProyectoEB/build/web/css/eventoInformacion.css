@@ -1,0 +1,101 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18-may-2023, 21:23:50
+    Author     : Ale Gamez
+*/
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 600px;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+.container-equipo1, .container-equipo2 {
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    max-width: 40%;
+}
+
+.container-equipo1 {
+    float: left;
+    margin-left: 20px;
+}
+
+.container-equipo2 {
+    float: right;
+    margin-right: 20px;
+}
+
+.container-deportistas {
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    max-width: 800px;
+}
+
+.container-equipo2 table, .container-equipo1 table, .container-deportistas table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.container-equipo2 table th, table td, .container-equipo1 table th, table td, .container-deportistas table th, table td{
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+header:hover,.container-deportistas:hover,.container-equipo1:hover,
+.container-equipo2:hover {
+    background-color: #f2f2f2;
+    transition: background-color 0.3s ease;
+}
+
+.container-deportistas table th, .container-equipo1 table th, .container-equipo2 table th {
+    background-color: #f2f2f2;
+}
+
+.container-deportistas table tr:hover , .container-equipo1 table tr:hover , .container-equipo2 table tr:hover {
+    background-color: #f5f5f5;
+}
+
+input[type="submit"] {
+    background-color: #337ab7;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #286090;}
+
+.volver-form {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+     <!-- Cambiar el idioma manualmente -->
+   <constant name="struts.locale" value =""/>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        <action name="" class="acciones.cargaInicialAction">
+            <result name="success">/index.jsp</result>
+        </action>
+    </package>
+    <package name="misacciones" extends="struts-default">
+        
+        <action name="cargaInicial" class="acciones.cargaInicialAction">
+            <result name="success">/index.jsp</result>
+        </action>
+        <action name="irDeporte" class="acciones.listarEventosAction">
+            <result name="success">/deporteIndex.jsp</result>
+        </action>
+        <action name="listarDeportistas" class="acciones.listarDeportistasAction">
+            <result name="success">/listaDeportistas.jsp</result>
+        </action>
+        <action name="mostrarEvento" class="acciones.mostrarEventoAction">
+            <result name="success">/eventoInformacion.jsp</result>
+        </action>
+         <action name="mostrarEventoAdmin" class="acciones.mostrarEventoAction">
+            <result name="success">/eventoInformacionAdmin.jsp</result>
+        </action>
+        
+        <!--INICIAR SESION-->
+        <action name="iniciarSesion" class="acciones.iniciarSesionAction">
+            <result name="success">/adminIndex.jsp</result>
+            <result name="input">/index.jsp</result>
+            <result name="error">/index.jsp</result>
+        </action>
+        
+        
+        <!--GESTIONAR DEPORTES-->
+        <action name="anadirDeporte" class="acciones.anadirDeporteAction">
+            <result name="success">/adminDeporteIndex.jsp</result>
+            <result name="input">/adminDeporteIndex.jsp</result>
+            <result name="error">/adminDeporteIndex.jsp</result>
+        </action>
+        <action name="eliminarDeporte" class="acciones.eliminarDeporteAction">
+            <result name="success">/adminDeporteIndex.jsp</result>
+            <result name="error">/adminIndex.jsp</result>
+        </action>
+        <action name="gestionarDeportes" class="acciones.gestionarDeporteAction">
+            <result name="success">/adminDeporteIndex.jsp</result>
+            <result name="error">/adminIndex.jsp</result>
+        </action>
+        
+        <action name="gestionarDeportes" class="acciones.gestionarDeporteAction">
+            <result name="success">/adminDeporteIndex.jsp</result>
+            <result name="error">/adminIndex.jsp</result>
+        </action>
+        <action name="gestionarDeporte" class="acciones.mostrarDeporteAction">
+            <result name="success">/actualizarDeporte.jsp</result>
+            <result name="input">/actualizarDeporte.jsp</result>
+        </action>
+        <action name="actualizarDeporte" class="acciones.actualizarDeporteAction">
+            <result name="success">/adminDeporteIndex.jsp</result>
+            <result name="input">/actualizarDeporte.jsp</result>
+            <result name="error">/actualizarDeporte.jsp</result>
+            
+        </action>
+        <!--GESTIONAR DEPORTISTAS-->
+        <action name="gestionarDeportistas" class="acciones.gestionarDeportistasAction">
+            <result name="success">/adminDeportistaIndex.jsp</result>
+            <result name="error">/adminIndex.jsp</result>
+        </action>
+        <action name="anadirDeportista" class="acciones.anadirDeportistaAction">
+            <result name="success">/adminDeportistaIndex.jsp</result>
+            <result name="input">/adminDeportistaIndex.jsp</result>
+            <result name="error">/adminDeportistaIndex.jsp</result>
+        </action>
+        <action name="eliminarDeportista" class="acciones.eliminarDeportistaAction">
+            <result name="success">/adminDeportistaIndex.jsp</result>
+            <result name="error">/adminDeportistaIndex.jsp</result>
+        </action>
+        <action name="filtrarDeportistas" class="acciones.filtrarDeportistasAction">
+            <result name="success">/adminDeportistaIndex.jsp</result>
+            <result name="error">/adminDeportistaIndex.jsp</result>
+        </action>
+        <action name="gestionarDeportista" class="acciones.mostrarDeportistaAction">
+            <result name="success">/actualizarDeportista.jsp</result>
+            <result name="input">/actualizarDeportista.jsp</result>
+        </action>
+        <action name="actualizarDeportista" class="acciones.actualizarDeportistaAction">
+            <result name="success">/adminDeportistaIndex.jsp</result>
+            <result name="input">/actualizarDeportista.jsp</result>
+            <result name="error">/actualizarDeportista.jsp</result>
+            
+        </action>
+        
+        
+        <!--GESTIONAR EVENTOS-->
+        <action name="gestionarEventos" class="acciones.gestionarEventosAction">
+            <result name="success">/adminEventosIndex.jsp</result>
+            <result name="error">/adminIndex.jsp</result>
+        </action>
+        <action name="anadirEvento" class="acciones.anadirEventoAction">
+            <result name="success">/adminEventosIndex.jsp</result>
+            <result name="input">/adminEventosIndex.jsp</result>
+            <result name="error">/adminEventosIndex.jsp</result>
+        </action>
+        <action name="eliminarEvento" class="acciones.eliminarEventoAction">
+            <result name="success">/adminEventosIndex.jsp</result>
+            <result name="error">/adminEventosIndex.jsp</result>
+        </action>
+        <action name="filtrarEventos" class="acciones.gestionarEventosAction">
+            <result name="success">/adminEventosIndex.jsp</result>
+            <result name="error">/adminEventosIndex.jsp</result>
+        </action>
+        <action name="editarEvento" class="acciones.mostrarEventoAdmin">
+            <result name="success">/actualizarEvento.jsp</result>
+            <result name="input">/actualizarEvento.jsp</result>
+            <result name="error">/adminEventosIndex.jsp</result>
+        </action>
+        <action name="actualizarEvento" class="acciones.actualizarEventoAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">editarEvento</param>
+            </result>
+            <result name="input">/actualizarEvento.jsp</result>
+            <result name="error">/actualizarEvento.jsp</result>
+        </action>
+        
+        <!--GESTIONAR EQUIPOS-->
+        <action name="gestionarEquipos" class="acciones.gestionarEquiposAction">
+            <result name="success">/adminEquipoIndex.jsp</result>
+            <result name="error">/adminIndex.jsp</result>
+        </action>
+        <action name="anadirEquipo" class="acciones.anadirEquipoAction">
+            <result name="success">/adminEquipoIndex.jsp</result>
+            <result name="input">/adminEquipoIndex.jsp</result>
+            <result name="error">/adminEquipoIndex.jsp</result>
+        </action>
+        <action name="eliminarEquipo" class="acciones.eliminarEquipoAction">
+            <result name="success">/adminEquipoIndex.jsp</result> 
+            <result name="error">/adminEquipoIndex.jsp</result>
+        </action>
+        <action name="mostrarEquipo" class="acciones.detallesEquipoAction">
+            <result name="success">/verDetallesEquipo.jsp</result> 
+            
+            <result name="error">/adminEquipoIndex.jsp</result>
+        </action>
+        <action name="editarEquipo" class="acciones.mostrarEquipoAction">
+            <result name="success">/actualizarEquipo.jsp</result> 
+            <result name="input">/actualizarEquipo.jsp</result> 
+            <result name="error">/adminEquipoIndex.jsp</result>
+        </action>
+        <action name="actualizarEquipo" class="acciones.actualizarEquipoAction">
+            <result name="success">/adminEquipoIndex.jsp</result>
+            <result name="input">/actualizarEquipo.jsp</result> 
+            <result name="error">/actualizarEquipo.jsp</result>
+        </action>
+        
+        <!--CERRAR SESION-->
+        <action name="cerrarSesion" class="acciones.cerrarSesionAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">cargaInicial</param>
+            </result>
+        </action>
+        
+        <action name="gestionarAdmin" class="acciones.gestionarCuentaAction">
+            <result name="success">/gestionarCuentas.jsp</result>
+        </action>
+        <action name="actualizarCuenta" class="acciones.actualizarUsuarioAction">
+            <result name="success">/gestionarCuentas.jsp</result>
+            <result name="input">/gestionarCuentas.jsp</result>
+            <result name="error">/gestionarCuentas.jsp</result>
+        </action>
+        <action name="anadirUsuario" class="acciones.gestionarCuentaAction">
+            <result name="success">/anadirUsuario.jsp</result>
+            <result name="input">/anadirUsuario.jsp</result>
+            <result name="error">/gestionarCuentas.jsp</result>
+        </action>
+        <action name="anadirCuenta" class="acciones.anadirUsuarioAction">
+            <result name="success">/anadirUsuario.jsp</result>
+            <result name="input">/anadirUsuario.jsp</result>
+            <result name="error">/gestionarCuentas.jsp</result>
+        </action>
+        <action name="eliminarCuenta" class="acciones.eliminarUsuarioAction">
+           <result name="success" type="redirectAction">
+                <param name="actionName">cerrarSesion</param>
+            </result>
+            <result name="input">/gestionarCuentas.jsp</result>
+            <result name="error">/gestionarCuentas.jsp</result>
+        </action>
+        
+        <action name="recuperarContrasena" class="acciones.recuperarContrasenaAction">
+            <result name="success">/index.jsp</result>
+            <result name="input">/index.jsp</result>
+            <result name="error">/index.jsp</result>
+        </action>
+        
+    </package>
+</struts>
